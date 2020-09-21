@@ -172,6 +172,12 @@ include('./client.php');
 $ventas = new SistemaVentas($client);
 echo $ventas->editUser( "2", "git", "98765", "Tester", "11223344", "Zaki", "Hauss" );
 echo " <br/> exec @ " . date("Y-m-d H:i:s");
+
+HOLA JOSSSSSSSSSSSSSSSSSSSsss
+
 */
+
+
+
 
 ?>
