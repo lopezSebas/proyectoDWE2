@@ -74,10 +74,10 @@ ALTER TABLE public.ordenes_detalles ADD CONSTRAINT ordenes_detalles_pk PRIMARY K
 
 
 ---------LLAVES FORANEAS-----------------
-ALTER TABLE public.ordenes ADD CONSTRAINT ordenes_fk FOREIGN KEY (id_usuario) REFERENCES public.ordenes(id);
-ALTER TABLE public.ordenes ADD CONSTRAINT ordenes_fk2 FOREIGN KEY (id_proveedor) REFERENCES public.ordenes(id);
-ALTER TABLE public.inventario ADD CONSTRAINT inventario_fk FOREIGN KEY (id_producto) REFERENCES public.inventario(id);
-ALTER TABLE public.inventario ADD CONSTRAINT inventario_fk2 FOREIGN KEY (id_sucursal) REFERENCES public.inventario(id);
-ALTER TABLE public.inventario ADD CONSTRAINT inventario_fk3 FOREIGN KEY (id_proveedor) REFERENCES public.inventario(id);
-ALTER TABLE public.ordenes_detalles ADD CONSTRAINT ordenes_detalles_fk FOREIGN KEY (id_orden) REFERENCES public.ordenes_detalles(id);
-ALTER TABLE public.ordenes_detalles ADD CONSTRAINT ordenes_detalles_fk2 FOREIGN KEY (id_inventario) REFERENCES public.ordenes_detalles(id);
+ALTER TABLE public.ordenes ADD CONSTRAINT ordenes_fk FOREIGN KEY (id_usuario) REFERENCES public.usuarios(id);
+ALTER TABLE public.ordenes ADD CONSTRAINT ordenes_fk2 FOREIGN KEY (id_proveedor) REFERENCES public.proveedores(id);
+ALTER TABLE public.inventario ADD CONSTRAINT inventario_fk FOREIGN KEY (id_producto) REFERENCES public.productos(id);
+ALTER TABLE public.inventario ADD CONSTRAINT inventario_fk2 FOREIGN KEY (id_sucursal) REFERENCES public.sucursales(id);
+ALTER TABLE public.inventario ADD CONSTRAINT inventario_fk3 FOREIGN KEY (id_proveedor) REFERENCES public.proveedores(id);
+ALTER TABLE public.ordenes_detalles ADD CONSTRAINT ordenes_detalles_fk FOREIGN KEY (id_orden) REFERENCES public.ordenes(id);
+ALTER TABLE public.ordenes_detalles ADD CONSTRAINT ordenes_detalles_fk2 FOREIGN KEY (id_inventario) REFERENCES public.inventario(id);
