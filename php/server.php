@@ -28,7 +28,29 @@ class server {
         ------------------------------------------------
     */
 
-    
+    public function listUsers() {
+
+        $query = "Select * from public.usuarios order by usuario";
+        $result = pg_query($this->connection, $query);
+        
+        $message = "";
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id" => $row['id'],
+                "usuario" => $row['usuario'],
+                "password" => $row['password'],
+                "tipo" => $row['tipo'],
+                "telefono" => $row['telefono'],
+                "nombre" => $row['nombre'],
+                "apellido" => $row['apellido']
+            ));
+        }
+
+        return $data;
+    }
+
+
     public function addUser($params) {
 
         $query = "INSERT INTO public.usuarios(usuario, password, tipo, telefono, nombre, apellido) values('{$params['usuario']}','{$params['password']}','{$params['tipo']}','{$params['telefono']}','{$params['nombre']}','{$params['apellido']}')";
@@ -48,6 +70,8 @@ class server {
         $query = "DELETE FROM public.usuarios where id = {$params['id']}";
         return pg_query($this->connection, $query) ? $query : false;
     }
+
+    
 
     /*
         ------------------------------------------------
@@ -167,17 +191,112 @@ class server {
         ------------------------------------------------
     */
 
+    public function addInventario( $params ) {
+
+        $id_producto = $params['id_producto'];
+        $id_sucursal = $params['id_sucursal'];
+        $id_proveedor = $params['id_proveedor'];
+        $estado = $params['estado'];
+        $tipo = $params['tipo'];
+        $fecha_modificacion = $params['fecha_modificacion'];
+        
+        $query = "INSERT INTO public.inventario(id_producto, id_sucursal, id_proveedor, estado, tipo, fehca_modificacion) values( $id_producto, $id_sucursal, $id_proveedor,'$estado','$tipo', $fecha_modificacion)";
+        return pg_query($this->connection, $query) ? $query : false;
+    }
+
+    public function editInventario( $params ) {
+
+        $id = $params['id'];
+        $id_producto = $params['id_producto'];
+        $id_sucursal = $params['id_sucursal'];
+        $id_proveedor = $params['id_proveedor'];
+        $estado = $params['estado'];
+        $tipo = $params['tipo'];
+        $fecha_modificacion = $params['fecha_modificacion'];
+        
+        $query = "UPDATE public.inventario set id_producto=$id_producto , id_sucursal=$id_sucursal, id_proveedor=$id_proveedor, estado='$estado', tipo='$tipo', fehca_modificacion=$fecha_modificacion where id=$id";
+        return pg_query($this->connection, $query) ? $query : false;
+    }
+
+    public function deleteInventario($params) {        
+        
+        $query = "DELETE FROM public.inventario where id = {$params['id']}";
+        return pg_query($this->connection, $query) ? $query : false;
+    }
+
     /*
         ------------------------------------------------
         --------------      Ordenes   ---------------
         ------------------------------------------------
     */
 
+    public function addOrden( $params ) {
+
+        $id_orden = $params['id_orden'];
+        $id_usuario = $params['id_usuario'];
+        $fecha = $params['fecha'];
+        $estado = $params['estado'];
+        $fecha_entrega = $params['fecha_entrega'];        
+        
+        $query = "INSERT INTO public.ordenes(id_orden, id_usuario, fecha, estado, fecha_entrega) values ( $id_orden, $id_usuario, $fecha, '$estado', $fecha_entrega)";
+        return pg_query($this->connection, $query) ? $query : false;
+    }
+
+    public function editOrden( $params ) {
+
+        $id = $params['id'];
+        $id_orden = $params['id_orden'];
+        $id_usuario = $params['id_usuario'];
+        $fecha = $params['fecha'];
+        $estado = $params['estado'];
+        $fecha_entrega = $params['fecha_entrega'];        
+        
+        $query = "UPDATE public.ordenes set id_orden=$id_orden, id_usuario=$id_usuario, fecha=$fecha, estado='$estado', fecha_entrega=$fecha_entrega where id = $id";
+        return pg_query($this->connection, $query) ? $query : false;
+    }
+
+    public function deleteOrden($params) {        
+        
+        $query = "DELETE FROM public.ordenes where id = {$params['id']}";
+        return pg_query($this->connection, $query) ? $query : false;
+    }
+
     /*
         ------------------------------------------------
         --------------      Ordenes Detalels    --------
         ------------------------------------------------
     */
+
+    public function addDetalle( $params ) {
+
+        $id_orden = $params['id_orden'];
+        $id_inventario = $params['id_inventario'];
+        $cantidad = $params['cantidad'];
+        $costo_unitario = $params['costo_unitario'];
+        
+        
+        $query = "INSERT INTO public.ordenes_detalles(id_orden, id_inventario, cantidad, costo_unitario) values ($id_orden, $id_inventario, $cantidad, $costo_unitario)";
+        return pg_query($this->connection, $query) ? $query : false;
+    }
+
+    public function editDetalle( $params ) {
+
+        $id = $params['id'];
+        $id_orden = $params['id_orden'];
+        $id_inventario = $params['id_inventario'];
+        $cantidad = $params['cantidad'];
+        $costo_unitario = $params['costo_unitario'];
+        
+        
+        $query = "UPDATE public.ordenes_detalles set id_orden=$id_orden, id_inventario=$id_inventario, cantidad=$cantidad, costo_unitario=$costo_unitario where id = $id";
+        return pg_query($this->connection, $query) ? $query : false;
+    }
+
+    public function deleteDetalle($params) {        
+        
+        $query = "DELETE FROM public.ordenes_detalles where id = {$params['id']}";
+        return pg_query($this->connection, $query) ? $query : false;
+    }
     
 
 

@@ -14,6 +14,10 @@ class SistemaVentas {
         ------------------------------------------------
     */
 
+    public function listUsers() {
+        return $this->client->listUsers();
+    }
+
     public function addUser($user, $pass, $type, $phone, $name, $lastname ) {                
         return $this->client->addUser(array(
             "usuario" => $user, 
@@ -147,11 +151,65 @@ class SistemaVentas {
         ------------------------------------------------
     */
 
+    public function addInventario( $id_product, $id_wh, $id_supplier, $status, $type, $updated ) {                
+        return $this->client-> addInventario(array(
+            "id_producto" => $id_product, 
+            "id_sucursal" => $id_wh, 
+            "id_proveedor" => $id_supplier, 
+            "estado" => $status, 
+            "tipo" => $type,
+            "fecha_modificacion" => $updated
+        ));
+    }
+
+    public function editInventario( $id, $id_product, $id_wh, $id_supplier, $status, $type, $updated ) {                
+        return $this->client-> addInventario(array(
+            "id" => $id,
+            "id_producto" => $id_product, 
+            "id_sucursal" => $id_wh, 
+            "id_proveedor" => $id_supplier, 
+            "estado" => $status, 
+            "tipo" => $type,
+            "fecha_modificacion" => $updated
+        ));
+    }
+
+    public function deleteInventario($id) {                
+        return $this->client->deleteInventario(array(
+            "id" => $id
+        ));
+    }
+
     /*
         ------------------------------------------------
         --------------      Ordenes   ---------------
         ------------------------------------------------
     */
+
+    public function addOrden( $user, $order_date, $status, $deliver_date ) {                
+        return $this->client-> addOrden(array(
+            "id_usuario" => $user, 
+            "fecha" => $order_date, 
+            "estado" => $status, 
+            "fecha_entrega" => $deliver_date
+        ));
+    }
+
+    public function editOrden( $id, $user, $order_date, $status, $deliver_date ) {                
+        return $this->client-> editOrden(array(
+            "id" => $id,
+            "id_usuario" => $user, 
+            "fecha" => $order_date, 
+            "estado" => $status, 
+            "fecha_entrega" => $deliver_date
+        ));
+    }
+
+    public function deleteOrden($id) {                
+        return $this->client->deleteOrden(array(
+            "id" => $id
+        ));
+    }
 
     /*
         ------------------------------------------------
@@ -159,6 +217,30 @@ class SistemaVentas {
         ------------------------------------------------
     */
 
+    public function addDetalle( $id_order, $id_inventario, $quantity, $cost ) {                
+        return $this->client-> addDetalle(array(
+            "id_orden" => $id_order, 
+            "id_inventario" => $id_inventario, 
+            "cantidad" => $quantity, 
+            "costo_unitario" => $cost
+        ));
+    }
+    
+    public function editDetalle( $id, $id_order, $id_inventario, $quantity, $cost ) {                
+        return $this->client-> editDetallle(array(
+            "id" => $id,
+            "id_orden" => $id_order, 
+            "id_inventario" => $id_inventario, 
+            "cantidad" => $quantity, 
+            "costo_unitario" => $cost
+        ));
+    }
+
+    public function deleteDetalle($id) {                
+        return $this->client->deleteDetalle(array(
+            "id" => $id
+        ));
+    }
 
 }
 

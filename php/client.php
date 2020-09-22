@@ -3,7 +3,8 @@
 class client {
 
     public function __construct() {
-        $params = array('location' => 'http://localhost/proyectoDWE2/php/server.php', 'uri' => 'urn://localhost/proyectoDWE2/php/server.php', 'trace' => 1);$this->instance = new SoapClient(NULL, $params);    
+        $params = array('location' => 'http://localhost/proyectoDWE2/php/server.php', 'uri' => 'urn://localhost/proyectoDWE2/php/server.php', 'trace' => 1);
+        $this->instance = new SoapClient(NULL, $params);    
     }
 
     /*
@@ -11,6 +12,10 @@ class client {
         --------------      Usuarios      --------------
         ------------------------------------------------
     */
+
+    public function listUsers() {
+        return $this->instance->__soapCall('listUsers', array(null));
+    }
 
     public function addUser($params) {
         return $this->instance->__soapCall('addUser', array($params));
@@ -84,17 +89,53 @@ class client {
         ------------------------------------------------
     */
 
+    public function addInventario($params) {
+        return $this->instance->__soapCall('addInventario', array($params));
+    }
+
+    public function editInventario($params) {
+        return $this->instance->__soapCall('editInventario', array($params));
+    }
+
+    public function deleteInventario($params) {
+        return $this->instance->__soapCall('deleteInventario', array($params));
+    }
+
     /*
         ------------------------------------------------
         --------------      Ordenes   ---------------
         ------------------------------------------------
     */
 
+    public function addOrden($params) {
+        return $this->instance->__soapCall('addOrden', array($params));
+    }
+
+    public function editOrden($params) {
+        return $this->instance->__soapCall('editOrden', array($params));
+    }
+
+    public function deleteOrden($params) {
+        return $this->instance->__soapCall('deleteOrden', array($params));
+    }
+
     /*
         ------------------------------------------------
         --------------      Ordenes Detalels     -------
         ------------------------------------------------
     */
+
+    public function addDetalle($params) {
+        return $this->instance->__soapCall('addDetalle', array($params));
+    }
+
+    public function editDetalle($params) {
+        return $this->instance->__soapCall('editDetalle', array($params));
+    }
+
+    public function deleteDetalle($params) {
+        return $this->instance->__soapCall('deleteDetalle', array($params));
+    }
 
 
 }
