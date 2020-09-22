@@ -162,8 +162,8 @@ class SistemaVentas {
 
 }
 
-
-
+include('./php/client.php');
+$servicio = new SistemaVentas($client);
 
 /*
 
