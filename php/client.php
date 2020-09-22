@@ -3,7 +3,7 @@
 class client {
 
     public function __construct() {
-        $params = array('location' => 'http://localhost/pedidos-soap/server.php', 'uri' => 'urn://localhost/pedidos-soap/server.php', 'trace' => 1);$this->instance = new SoapClient(NULL, $params);    
+        $params = array('location' => 'http://localhost/proyectoDWE2/server.php', 'uri' => 'urn://localhost/proyectoDWE2/server.php', 'trace' => 1);$this->instance = new SoapClient(NULL, $params);    
     }
 
     /*

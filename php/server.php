@@ -183,7 +183,7 @@ class server {
 
 }
 
-$params = array('uri' => 'localhost/pedidos-soap/server.php');
+$params = array('uri' => 'localhost/proyectoDWE2/server.php');
 $server = new SoapServer(NULL, $params);
 $server->setClass('server');
 $server->handle();
