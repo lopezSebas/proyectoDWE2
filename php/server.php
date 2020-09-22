@@ -100,6 +100,47 @@ class server {
         ------------------------------------------------
     */
 
+    public function listSuppliers() {
+
+        $query = "Select * from public.proveedores order by nombre";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id" => $row['id'],
+                "nombre" => $row['nombre'],
+                "nit" => $row['nit'],
+                "correo" => $row['correo'],
+                "telefono" => $row['telefono'],
+                "tipo" => $row['tipo']
+            ));
+        }
+
+        return $data;
+    }
+
+    public function getSupplier($params) {
+
+        $id = $params['id'];
+        $query = "Select * from public.proveedores where id = $id";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id" => $row['id'],
+                "nombre" => $row['nombre'],
+                "nit" => $row['nit'],
+                "correo" => $row['correo'],
+                "telefono" => $row['telefono'],
+                "tipo" => $row['tipo']
+            ));
+        }
+
+        return $data;
+    }
+
     public function addSupplier($params) {
 
         $nombre = $params['nombre']; 
@@ -140,6 +181,45 @@ class server {
         ------------------------------------------------
     */
 
+    public function listDW() {
+
+        $query = "Select * from public.sucursales order by nombre";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id" => $row['id'],
+                "nombre" => $row['nombre'],
+                "direccion" => $row['direccion'],
+                "correo" => $row['correo'],
+                "telefono" => $row['telefono']                
+            ));
+        }
+
+        return $data;
+    }
+
+    public function getDW($params) {
+
+        $id = $params['id'];
+        $query = "Select * from public.sucursales where id = $id";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id" => $row['id'],
+                "nombre" => $row['nombre'],
+                "direccion" => $row['direccion'],
+                "correo" => $row['correo'],
+                "telefono" => $row['telefono']                
+            ));
+        }
+
+        return $data;
+    }
+
     public function addWH($params) {
 
         $nombre = $params['nombre'];
@@ -174,6 +254,47 @@ class server {
         --------------      Productos   ---------------
         ------------------------------------------------
     */
+
+    public function listProducts() {
+
+        $query = "Select * from public.productos order by nombre";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id" => $row['id'],
+                "codigo" => $row['codigo'],
+                "descripcion" => $row['descripcion'],
+                "marca" => $row['marca'],
+                "tipo" => $row['tipo'],
+                "url" => $row['url']
+            ));
+        }
+
+        return $data;
+    }
+
+    public function getProduct($params) {
+
+        $id = $params['id'];
+        $query = "Select * from public.productos where id = $id";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id" => $row['id'],
+                "codigo" => $row['codigo'],
+                "descripcion" => $row['descripcion'],
+                "marca" => $row['marca'],
+                "tipo" => $row['tipo'],
+                "url" => $row['url']
+            ));
+        }
+
+        return $data;
+    }
 
     public function addProduct($params) {
 
@@ -211,6 +332,47 @@ class server {
         --------------      Inventario   ---------------
         ------------------------------------------------
     */
+
+    public function listInventario() {
+
+        $query = "Select * from public.inventario order by id";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id_producto" => $row['id_producto'],
+                "id_sucursal" => $row['id_sucursal'],
+                "id_proveedor" => $row['id_proveedor'],
+                "estado" => $row['estado'],
+                "tipo" => $row['tipo'],
+                "fecha_modificacion" => $row['fecha_modificacion']
+            ));
+        }
+
+        return $data;
+    }
+
+    public function getInventario($params) {
+
+        $id = $params['id'];
+        $query = "Select * from public.inventario where id = $id";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id_producto" => $row['id_producto'],
+                "id_sucursal" => $row['id_sucursal'],
+                "id_proveedor" => $row['id_proveedor'],
+                "estado" => $row['estado'],
+                "tipo" => $row['tipo'],
+                "fecha_modificacion" => $row['fecha_modificacion']
+            ));
+        }
+
+        return $data;
+    }
 
     public function addInventario( $params ) {
 
@@ -251,6 +413,45 @@ class server {
         ------------------------------------------------
     */
 
+    public function listOrders() {
+
+        $query = "Select * from public.ordenes order by id desc";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id_orden" => $row['id_orden'],
+                "id_usuario" => $row['id_usuario'],
+                "fecha" => $row['fecha'],
+                "estado" => $row['estado'],
+                "fecha_entrega" => $row['fecha_entrega']
+            ));
+        }
+
+        return $data;
+    }
+
+    public function getOrder($params) {
+
+        $id = $params['id'];
+        $query = "Select * from public.ordenes where id = $id";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id_orden" => $row['id_orden'],
+                "id_usuario" => $row['id_usuario'],
+                "fecha" => $row['fecha'],
+                "estado" => $row['estado'],
+                "fecha_entrega" => $row['fecha_entrega']
+            ));
+        }
+
+        return $data;
+    }
+
     public function addOrden( $params ) {
 
         $id_orden = $params['id_orden'];
@@ -287,6 +488,43 @@ class server {
         --------------      Ordenes Detalels    --------
         ------------------------------------------------
     */
+
+    public function listDetalles() {
+
+        $query = "Select * from public.ordenes_detalles order by id desc";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id_orden" => $row['id_orden'],
+                "id_inventario" => $row['id_inventario'],
+                "cantidad" => $row['cantidad'],
+                "costo_unitario" => $row['costo_unitario']
+            ));
+        }
+
+        return $data;
+    }
+
+    public function getDetalle($params) {
+
+        $id = $params['id'];
+        $query = "Select * from public.ordenes_detalles where id = $id";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id_orden" => $row['id_orden'],
+                "id_inventario" => $row['id_inventario'],
+                "cantidad" => $row['cantidad'],
+                "costo_unitario" => $row['costo_unitario']
+            ));
+        }
+
+        return $data;
+    }
 
     public function addDetalle( $params ) {
 

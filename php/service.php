@@ -18,6 +18,12 @@ class SistemaVentas {
         return $this->client->listUsers();
     }
 
+    public function getUser( $id ) {                
+        return $this->client->getUser(array(
+            "id" => $id
+        ));
+    }
+
     public function addUser($user, $pass, $type, $phone, $name, $lastname ) {                
         return $this->client->addUser(array(
             "usuario" => $user, 
@@ -53,6 +59,16 @@ class SistemaVentas {
         ------------------------------------------------
     */
 
+    public function listSuppliers() {
+        return $this->client->listSuppliers();
+    }
+
+    public function getSupplier( $id ) {                
+        return $this->client->getSupplier(array(
+            "id" => $id
+        ));
+    }
+
     public function addSupplier($name, $nit, $mail, $phone, $type) {                
         return $this->client->addSupplier(array(
             "nombre" => $name, 
@@ -86,6 +102,16 @@ class SistemaVentas {
         ------------------------------------------------
     */
 
+    public function listDW() {
+        return $this->client->listDW();
+    }
+
+    public function getDW( $id ) {                
+        return $this->client->getDW(array(
+            "id" => $id
+        ));
+    }
+
     public function addWH( $id, $name, $address, $mail, $phone ) {                
         return $this->client-> addWH(array(
             "id" => $id,
@@ -117,6 +143,16 @@ class SistemaVentas {
         --------------      Productos   ---------------
         ------------------------------------------------
     */
+
+    public function listProducts() {
+        return $this->client->listProducts();
+    }
+
+    public function getProduct( $id ) {                
+        return $this->client->getProduct(array(
+            "id" => $id
+        ));
+    }
 
     public function addProduct( $code, $desc, $brand, $type, $url ) {                
         return $this->client-> addProduct(array(
@@ -150,6 +186,16 @@ class SistemaVentas {
         --------------      Inventario   ---------------
         ------------------------------------------------
     */
+
+    public function listInventario() {
+        return $this->client->listInventario();
+    }
+
+    public function getInventario( $id ) {                
+        return $this->client->getInventario(array(
+            "id" => $id
+        ));
+    }
 
     public function addInventario( $id_product, $id_wh, $id_supplier, $status, $type, $updated ) {                
         return $this->client-> addInventario(array(
@@ -186,6 +232,16 @@ class SistemaVentas {
         ------------------------------------------------
     */
 
+    public function listOrders() {
+        return $this->client->listOrders();
+    }
+
+    public function getOrder( $id ) {                
+        return $this->client->getOrder(array(
+            "id" => $id
+        ));
+    }
+
     public function addOrden( $user, $order_date, $status, $deliver_date ) {                
         return $this->client-> addOrden(array(
             "id_usuario" => $user, 
@@ -216,6 +272,16 @@ class SistemaVentas {
         --------------      Ordenes Detalels     -------
         ------------------------------------------------
     */
+
+    public function listDetalles() {
+        return $this->client->listDetalles();
+    }
+
+    public function getDetalle( $id ) {                
+        return $this->client->getDetalle(array(
+            "id" => $id
+        ));
+    }
 
     public function addDetalle( $id_order, $id_inventario, $quantity, $cost ) {                
         return $this->client-> addDetalle(array(

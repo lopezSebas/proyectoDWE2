@@ -18,7 +18,17 @@ include('./php/service.php');
     echo $servicio->deleteUser(1);
     echo " <br/> exec @ " . date("Y-m-d H:i:s");
     */
-if(isset($_POST["parametro"]) && $_POST["parametro"] == "cu"){
+
+
+    #LIST
+    /*
+    print_r($servicio->listUsers());
+    print_r($servicio->getUser(1));
+    echo " <br/> exec @ " . date("Y-m-d H:i:s");
+    */
+
+
+/*if(isset($_POST["parametro"]) && $_POST["parametro"] == "cu"){
     echo $servicio->addUser($_POST["usuario"], "nuevo123", $_POST["tipo"], $_POST["telefono"], $_POST["nombre"], $_POST["apellido"] );
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == "du"){
     echo $servicio->deleteUser($_POST["id"]);
@@ -40,19 +50,7 @@ if(isset($_POST["parametro"]) && $_POST["parametro"] == "cu"){
 
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
+}*/
 
 
 ?>
