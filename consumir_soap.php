@@ -1,12 +1,11 @@
 <?php 
 include('./php/service.php');
 //print_r ($servicio->listUsers());
-    
-/*    #ADD
-
-    echo $servicio->addUser("prueba", "xxxx", "tester", "11111", "xxxx", "Morales" );
-    echo " <br/> exec @ " . date("Y-m-d H:i:s");*/
-
+    #ADD
+    /*
+    echo $servicio->addUser("xamos", "xxxx", "tester", "11111", "xxxx", "Morales" );
+    echo " <br/> exec @ " . date("Y-m-d H:i:s");
+    */
 /*
     #EDIT
 

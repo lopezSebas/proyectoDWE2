@@ -33,7 +33,6 @@ class server {
         $query = "Select * from public.usuarios order by usuario";
         $result = pg_query($this->connection, $query);
         
-        $message = "";
         $data = array();
         while ( $row = pg_fetch_assoc($result) ) {            
             array_push($data, array(

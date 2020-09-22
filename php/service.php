@@ -64,7 +64,7 @@ class SistemaVentas {
     }
 
     public function editSupplier($id, $name, $nit, $mail, $phone, $type) {                
-        return $this->client->addSupplier(array(
+        return $this->client->editSupplier(array(
             "id" => $id,
             "nombre" => $name, 
             "nit" => $nit, 
@@ -163,7 +163,7 @@ class SistemaVentas {
     }
 
     public function editInventario( $id, $id_product, $id_wh, $id_supplier, $status, $type, $updated ) {                
-        return $this->client-> addInventario(array(
+        return $this->client-> editInventario(array(
             "id" => $id,
             "id_producto" => $id_product, 
             "id_sucursal" => $id_wh, 
