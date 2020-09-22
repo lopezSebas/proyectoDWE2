@@ -4,8 +4,11 @@
     
     
     include('./php/service.php');
-    print_r ($servicio->listUsers());
-    
+
+    #LIST
+    /*
+        print_r ($servicio->listUsers());
+    */
     
     #ADD
     /*
