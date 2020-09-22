@@ -1,5 +1,5 @@
 <?php 
-include('./php/service.php');
+include('./soap/service.php');
 //print_r ($servicio->listUsers());
     #ADD
     /*
@@ -21,11 +21,11 @@ include('./php/service.php');
 
 
     #LIST
-    /*
+    
     print_r($servicio->listUsers());
-    print_r($servicio->getUser(1));
+    #print_r($servicio->getUser(1));
     echo " <br/> exec @ " . date("Y-m-d H:i:s");
-    */
+    
 
 
 /*if(isset($_POST["parametro"]) && $_POST["parametro"] == "cu"){
