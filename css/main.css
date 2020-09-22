@@ -10,7 +10,8 @@ body {
   grid-column-gap: 10px;
   height: 100vh;
   margin: 0;
-  }  
+  background-color: lightgray;
+}
 header, footer, article, nav, div {
   padding: 1.2em;
 }
@@ -68,3 +69,114 @@ nav a:hover {
   width: 75px;
   height: 75px;
 }
+.btn-verde{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
+.btn-verde:hover{
+  background-color: #4c8c0b; /* Green */
+  color: white;
+}
+.btn-amarillo{
+  background-color: #efbc26;
+  border: none;
+  color: #070707;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
+.btn-amarillo:hover{
+  background-color: #efac26; /* Green */
+  color: #050505;
+}
+.btn-rojo{
+  background-color: #fa0000;
+  border: none;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
+.btn-rojo:hover{
+  background-color: #d61717; /* Green */
+  color: white;
+}
+.btn-azul{
+  background-color: #003ffa;
+  border: none;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
+.btn-azul:hover{
+  background-color: #0586f6; /* Green */
+  color: white;
+}
+input{
+  width: 100%;
+  padding: 8px 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+input:focus{
+  outline: none;
+  border-color: #1888ff;
+  box-shadow: 0 0 10px #719ECE;
+}
+select{
+  width: 100%;
+  padding: 8px 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+select:focus{
+  outline: none;
+  border-color: #1888ff;
+  box-shadow: 0 0 10px #719ECE;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.container{
+  display: grid;
+  background: #fff;
+  border: solid 1px #e6e6e6;
+  box-sizing: border-box;
+  padding: 2px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+
+.formulario{
+  margin-bottom:15px
+}
+
