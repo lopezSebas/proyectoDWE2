@@ -65,12 +65,12 @@ class client {
         ------------------------------------------------
     */
 
-    public function listDW() {
-        return $this->instance->__soapCall('listDW', array(null));
+    public function listWH() {
+        return $this->instance->__soapCall('listWH', array(null));
     }
     
-    public function getDW($params) {
-        return $this->instance->__soapCall('getDW', array($params));
+    public function getWH($params) {
+        return $this->instance->__soapCall('getWH', array($params));
     }
 
     public function addWH($params) {

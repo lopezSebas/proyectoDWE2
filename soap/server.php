@@ -181,7 +181,7 @@ class server {
         ------------------------------------------------
     */
 
-    public function listDW() {
+    public function listWH() {
 
         $query = "Select * from public.sucursales order by nombre";
         $result = pg_query($this->connection, $query);
@@ -200,7 +200,7 @@ class server {
         return $data;
     }
 
-    public function getDW($params) {
+    public function getWH($params) {
 
         $id = $params['id'];
         $query = "Select * from public.sucursales where id = $id";
@@ -257,7 +257,7 @@ class server {
 
     public function listProducts() {
 
-        $query = "Select * from public.productos order by nombre";
+        $query = "Select * from public.productos order by codigo";
         $result = pg_query($this->connection, $query);
         
         $data = array();

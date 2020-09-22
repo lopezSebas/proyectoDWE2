@@ -102,12 +102,12 @@ class SistemaVentas {
         ------------------------------------------------
     */
 
-    public function listDW() {
-        return $this->client->listDW();
+    public function listWH() {
+        return $this->client->listWH();
     }
 
-    public function getDW( $id ) {                
-        return $this->client->getDW(array(
+    public function getWH( $id ) {                
+        return $this->client->getWH(array(
             "id" => $id
         ));
     }
