@@ -49,6 +49,28 @@ class server {
         return $data;
     }
 
+    public function getUser($params) {
+
+        $id = $params['id'];
+        $query = "Select * from public.usuarios where id = $id";
+        $result = pg_query($this->connection, $query);
+        
+        $data = array();
+        while ( $row = pg_fetch_assoc($result) ) {            
+            array_push($data, array(
+                "id" => $row['id'],
+                "usuario" => $row['usuario'],
+                "password" => $row['password'],
+                "tipo" => $row['tipo'],
+                "telefono" => $row['telefono'],
+                "nombre" => $row['nombre'],
+                "apellido" => $row['apellido']
+            ));
+        }
+
+        return $data;
+    }
+
 
     public function addUser($params) {
 
@@ -161,7 +183,7 @@ class server {
         $tipo = $params['tipo'];
         $url = $params['url'];
 
-        $query = "INSERT INTO public.productos VALUES(codigo, descripcion, marca, tipo, url) values('$codigo','$descripcion','$marca','$tipo','$url')";
+        $query = "INSERT INTO public.productos(codigo, descripcion, marca, tipo, url) values('$codigo','$descripcion','$marca','$tipo','$url')";
         return pg_query($this->connection, $query) ? $query : false;
     }
 
