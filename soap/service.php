@@ -294,7 +294,7 @@ class SistemaVentas {
     }
     
     public function editDetalle( $id, $id_order, $id_inventario, $quantity, $cost ) {                
-        return $this->client-> editDetallle(array(
+        return $this->client-> editDetalle(array(
             "id" => $id,
             "id_orden" => $id_order, 
             "id_inventario" => $id_inventario, 
