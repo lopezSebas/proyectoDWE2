@@ -1,5 +1,5 @@
 <?php
-include ("menu.php")
+include("menu.php");
 ?>
 <!DOCTYPE html>
 <head>
@@ -7,13 +7,14 @@ include ("menu.php")
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcial 2</title>
-    <link rel="stylesheet" href="css/main.css">
-    <script type="text/javascript" src="js/script.js"></script>
-    <script src="js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
 </head>
 <body>
+<?php echo menuListado(); ?>
 <header id="pageHeader">
-    <img src="res/umg.png" alt="" class="logo">
+    <img src="../res/umg.png" alt="" class="logo">
 </header>
 <article id="mainArticle">
     <div class="container">
@@ -41,6 +42,6 @@ include ("menu.php")
         </div>
     </div>
 </article>
-<?php echo menu(); ?>
+<?php echo footer(); ?>
 
 </body>

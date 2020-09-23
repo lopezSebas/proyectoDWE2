@@ -1,6 +1,5 @@
 <?php
-include ("menu.php");
-include('./php/service.php');
+include("menu.php");
 ?>
 <!DOCTYPE html>
 <head>
@@ -8,18 +7,19 @@ include('./php/service.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcial 2</title>
-    <link rel="stylesheet" href="css/main.css">
-    <script type="text/javascript" src="js/script.js"></script>
-    <script src="js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
 </head>
 <body>
+<?php echo menuListado(); ?>
 <header id="pageHeader">
-    <img src="res/umg.png" alt="" class="logo">
+    <img src="../res/umg.png" alt="" class="logo">
 </header>
 <article id="mainArticle">
     <div class="container">
         <div class="content-body">
-            <h3>EDITAR USUARIO</h3>
+            <h3>INGRESAR USUARIO</h3>
             <div class="input">
                 <labe>Nombre</labe>
                 <input type="text" name=""  id="nombre" >
@@ -32,8 +32,8 @@ include('./php/service.php');
                 <labe>Tipo</labe>
                 <select name="" id="tipo" >
                     <option value="null">Seleccione tipo</option>
-                    <option value="Colaborador">Colaborador</option>
-                    <option value="Cliente">Cliente</option>
+                    <option value="1">Colaborador</option>
+                    <option value="2">Cliente</option>
                 </select>
             </div>
             <div class=input">
@@ -44,14 +44,9 @@ include('./php/service.php');
                 <labe>Usuario</labe>
                 <input type="text" name=""  id="usuario" >
             </div>
-            <div class=input">
-                <labe>Password</labe>
-                <input type="password" name=""  id="pass" >
-            </div>
-            <input type="hidden" id="id" value="<?php echo $_GET["id"] ?>">
-            <input type="submit" class="btn-verde" onclick="editarUsuario()" value="Actualizar">
+            <input type="submit" class="btn-verde" onclick="crearUsuario()" value="Guardar">
         </div>
     </div>
 </article>
-<?php echo menu(); ?>
+<?php echo footer(); ?>
 </body>

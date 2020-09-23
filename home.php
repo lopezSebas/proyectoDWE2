@@ -1,5 +1,5 @@
 <?php
-include ("menu.php")
+include("php/menu.php")
 ?>
 <!DOCTYPE html>
 <head>
@@ -14,6 +14,7 @@ include ("menu.php")
     <header id="pageHeader">
         <img src="res/umg.png" alt="" class="logo">
     </header>
-    <article id="mainArticle">Article</article>
     <?php echo menu(); ?>
+    <article id="mainArticle">Article</article>
+    <?php echo footer(); ?>
 </body>
