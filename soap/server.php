@@ -383,7 +383,7 @@ class server {
         $tipo = $params['tipo'];
         $fecha_modificacion = $params['fecha_modificacion'];
         
-        $query = "INSERT INTO public.inventario(id_producto, id_sucursal, id_proveedor, estado, tipo, fecha_modificacion) values( $id_producto, $id_sucursal, $id_proveedor,'$estado','$tipo', $fecha_modificacion)";
+        $query = "INSERT INTO public.inventario(id_producto, id_sucursal, id_proveedor, estado, tipo, fecha_modificacion) values( $id_producto, $id_sucursal, $id_proveedor,'$estado','$tipo', '$fecha_modificacion')";
         return pg_query($this->connection, $query) ? $query : false;
     }
 
