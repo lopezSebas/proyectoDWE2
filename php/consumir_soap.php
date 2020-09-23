@@ -26,7 +26,7 @@ include('../soap/service.php');
     #print_r($servicio->getDetalle(1));
     #echo " <br/> exec @ " . date("Y-m-d H:i:s");
 
-/*
+
 if (is_array($_FILES) && count($_FILES) > 0) {
     if (($_FILES["imagen"]["type"] == "image/pjpeg") || ($_FILES["imagen"]["type"] == "image/jpeg") || ($_FILES["imagen"]["type"] == "image/png") || ($_FILES["imagen"]["type"] == "image/gif")) {
         if (move_uploaded_file($_FILES["imagen"]["tmp_name"], "../imagenes/".$_FILES['imagen']['name'])) {
@@ -66,6 +66,5 @@ if (is_array($_FILES) && count($_FILES) > 0) {
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
 
 }
-*/
 
 ?>
