@@ -1,21 +1,4 @@
-<?php
-include("menu.php");
-?>
-<!DOCTYPE html>
-<head>
-    <script src="https://kit.fontawesome.com/7bf3b56285.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcial 2</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="../js/script.js"></script>
-</head>
-<body>
-<header id="pageHeader">
-    <img src="../res/umg.png" alt="" class="logo">
-</header>
-<?php echo menuListado(); ?>
+<?php include ("../header.php")?>
 <article id="mainArticle">
     <div class="container">
         <div class="content-body">
@@ -42,6 +25,5 @@ include("menu.php");
         </div>
     </div>
 </article>
-<?php echo footer(); ?>
-
-</body>
+<?php include ("../menu.php")?>
+<?php include ("../footer.php")?>
