@@ -242,19 +242,21 @@ class SistemaVentas {
         ));
     }
 
-    public function addOrden( $user, $order_date, $status, $deliver_date ) {                
+    public function addOrden( $user, $supplier, $order_date, $status, $deliver_date ) {                
         return $this->client-> addOrden(array(
             "id_usuario" => $user, 
+            "id_proveedor" => $supplier, 
             "fecha" => $order_date, 
             "estado" => $status, 
             "fecha_entrega" => $deliver_date
         ));
     }
 
-    public function editOrden( $id, $user, $order_date, $status, $deliver_date ) {                
+    public function editOrden( $id, $user, $supplier, $order_date, $status, $deliver_date ) {                
         return $this->client-> editOrden(array(
             "id" => $id,
             "id_usuario" => $user, 
+            "id_proveedor" => $supplier,
             "fecha" => $order_date, 
             "estado" => $status, 
             "fecha_entrega" => $deliver_date
