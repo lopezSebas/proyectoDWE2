@@ -3,30 +3,30 @@ include('../soap/service.php');
 //print_r ($servicio->listUsers());
     #ADD
     
-    echo $servicio->addOrden( 13, 1, '2020-09-23', 'en proceso', '2020-09-30' );
-    echo " <br/> exec @ " . date("Y-m-d H:i:s");
+    #echo $servicio->addDetalle( 2, 6, 25, 7 );
+    #echo " <br/> exec @ " . date("Y-m-d H:i:s");
     
 
     #EDIT
 
-    #echo $servicio->editInventario(6, 3, 3, 1, "entregado", "producto", "2020-09-23 11:47:50" );
+    #echo $servicio->editDetalle( 3, 2, 6, 55, 10 );
     #echo " <br/> exec @ " . date("Y-m-d H:i:s");
     
 
     #DELETE
     
-    #echo $servicio->deleteInventario(5);
+    #echo $servicio->deleteDetalle(3);
     #echo " <br/> exec @ " . date("Y-m-d H:i:s");
     
 
 
     #LIST
     
-    #print_r($servicio->listInventario());
-    #print_r($servicio->getInventario(7));
+    #print_r($servicio->listDetalles());
+    #print_r($servicio->getDetalle(1));
     #echo " <br/> exec @ " . date("Y-m-d H:i:s");
 
-
+/*
 if (is_array($_FILES) && count($_FILES) > 0) {
     if (($_FILES["imagen"]["type"] == "image/pjpeg") || ($_FILES["imagen"]["type"] == "image/jpeg") || ($_FILES["imagen"]["type"] == "image/png") || ($_FILES["imagen"]["type"] == "image/gif")) {
         if (move_uploaded_file($_FILES["imagen"]["tmp_name"], "../imagenes/".$_FILES['imagen']['name'])) {
@@ -60,6 +60,6 @@ if (is_array($_FILES) && count($_FILES) > 0) {
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
 
 }
-
+*/
 
 ?>
