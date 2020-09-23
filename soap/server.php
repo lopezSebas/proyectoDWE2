@@ -397,7 +397,7 @@ class server {
         $tipo = $params['tipo'];
         $fecha_modificacion = $params['fecha_modificacion'];
         
-        $query = "UPDATE public.inventario set id_producto=$id_producto , id_sucursal=$id_sucursal, id_proveedor=$id_proveedor, estado='$estado', tipo='$tipo', fecha_modificacion=$fecha_modificacion where id=$id";
+        $query = "UPDATE public.inventario set id_producto=$id_producto , id_sucursal=$id_sucursal, id_proveedor=$id_proveedor, estado='$estado', tipo='$tipo', fecha_modificacion='$fecha_modificacion' where id=$id";
         return pg_query($this->connection, $query) ? $query : false;
     }
 
@@ -421,8 +421,8 @@ class server {
         $data = array();
         while ( $row = pg_fetch_assoc($result) ) {            
             array_push($data, array(
-                "id_orden" => $row['id_orden'],
                 "id_usuario" => $row['id_usuario'],
+                "id_proveedor" => $row['id_proveedor'],
                 "fecha" => $row['fecha'],
                 "estado" => $row['estado'],
                 "fecha_entrega" => $row['fecha_entrega']
@@ -441,8 +441,8 @@ class server {
         $data = array();
         while ( $row = pg_fetch_assoc($result) ) {            
             array_push($data, array(
-                "id_orden" => $row['id_orden'],
                 "id_usuario" => $row['id_usuario'],
+                "id_proveedor" => $row['id_proveedor'],
                 "fecha" => $row['fecha'],
                 "estado" => $row['estado'],
                 "fecha_entrega" => $row['fecha_entrega']
@@ -454,28 +454,26 @@ class server {
 
     public function addOrden( $params ) {
 
-        $id_orden = $params['id_orden'];
         $id_usuario = $params['id_usuario'];
         $id_proveedor = $params['id_proveedor'];
         $fecha = $params['fecha'];
         $estado = $params['estado'];
         $fecha_entrega = $params['fecha_entrega'];        
         
-        $query = "INSERT INTO public.ordenes(id_orden, id_usuario, id_proveedor, fecha, estado, fecha_entrega) values ( $id_orden, $id_usuario, $id_proveedor, $fecha, '$estado', $fecha_entrega)";
+        $query = "INSERT INTO public.ordenes(id_usuario, id_proveedor, fecha, estado, fecha_entrega) values ($id_usuario, $id_proveedor, '$fecha', '$estado', '$fecha_entrega')";
         return pg_query($this->connection, $query) ? $query : false;
     }
 
     public function editOrden( $params ) {
-
+        
         $id = $params['id'];
-        $id_orden = $params['id_orden'];
         $id_usuario = $params['id_usuario'];
         $id_proveedor = $params['id_proveedor'];
         $fecha = $params['fecha'];
         $estado = $params['estado'];
         $fecha_entrega = $params['fecha_entrega'];        
         
-        $query = "UPDATE public.ordenes set id_orden=$id_orden, id_usuario=$id_usuario, id_proveedor=$id_proveedor, fecha=$fecha, estado='$estado', fecha_entrega=$fecha_entrega where id = $id";
+        $query = "UPDATE public.ordenes set id_usuario=$id_usuario, id_proveedor=$id_proveedor, fecha='$fecha', estado='$estado', fecha_entrega='$fecha_entrega' where id = $id";
         return pg_query($this->connection, $query) ? $query : false;
     }
 

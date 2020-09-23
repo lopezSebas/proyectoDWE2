@@ -112,9 +112,8 @@ class SistemaVentas {
         ));
     }
 
-    public function addWH( $id, $name, $address, $mail, $phone ) {                
+    public function addWH( $name, $address, $mail, $phone ) {                
         return $this->client-> addWH(array(
-            "id" => $id,
             "nombre" => $name, 
             "direccion" => $address, 
             "correo" => $mail, 
