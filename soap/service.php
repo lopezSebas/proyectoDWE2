@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class SistemaVentas {
 
@@ -312,7 +312,7 @@ class SistemaVentas {
 
 }
 
-include('./soap/client.php');
+include('../soap/client.php');
 $servicio = new SistemaVentas($client);
 
 /*

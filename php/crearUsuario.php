@@ -31,5 +31,5 @@
         </div>
     </div>
 </article>
-<?php include ("menu.php")?>
-<?php include ("footer.php")?>
+<?php include ("../menu.php")?>
+<?php include ("../footer.php")?>
