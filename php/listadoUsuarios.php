@@ -1,6 +1,6 @@
 <?php
 include ("menu.php");
-include('./php/service.php');
+include('./soap/service.php');
 ?>
 <!DOCTYPE html>
 <head>
@@ -37,21 +37,6 @@ include('./php/service.php');
                 </thead>
                 <tbody>
                 <?php
-                    
-                    foreach ($servicio->listUsers() as $usuarios){
-                        echo "<tr>\n";
-                        foreach ($usuarios as $key => $usuario){
-                            if($key != "id"){
-                                echo "<td>$usuario</td>\n";
-                            }else{
-                                echo "<td><a href=\"editarUsuario.php?id=".$usuario."\" class=\"btn-amarillo\" >Editar</a></td>";
-                                echo "<td><a onclick='eliminarUsuario($usuario)' class=\"btn-rojo\" >Eliminar</a></td>";
-                            }
-                        }
-                        echo "</tr>\n";
-                    }
-
-                    /*
                     foreach ( $servicio->listUsers() as $usuarios ) {
                         echo "<tr>\n";
                         echo "<td>{$usuarios['usuario']}</td>\n";
@@ -59,12 +44,10 @@ include('./php/service.php');
                         echo "<td>{$usuarios['apellido']}</td>\n";
                         echo "<td>{$usuarios['tipo']}</td>\n";
                         echo "<td>{$usuarios['telefono']}</td>\n";
-                        echo "<td><a href=\"editarUsuario.php?id=".$usuarios."\" class=\"btn-amarillo\" >Editar</a></td>";
-                        echo "<td><a onclick='eliminarUsuario($usuarios)' class=\"btn-rojo\" >Eliminar</a></td>";
+                        echo "<td><a href=\"editarUsuario.php?id=".$usuarios['id']."\" class=\"btn-amarillo\" >Editar</a></td>";
+                        echo "<td><a onclick='eliminarUsuario({$usuarios['id']})' class=\"btn-rojo\" >Eliminar</a></td>";
                         echo "</tr>\n";
                     }
-                    */
-
                 ?>
                 </tbody>
             </table>

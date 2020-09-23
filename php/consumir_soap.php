@@ -21,14 +21,14 @@ include('./soap/service.php');
 
 
     #LIST
-    
+    /*
     print_r($servicio->listUsers());
     #print_r($servicio->getUser(1));
-    echo " <br/> exec @ " . date("Y-m-d H:i:s");
+    echo " <br/> exec @ " . date("Y-m-d H:i:s");*/
     
 
 
-/*if(isset($_POST["parametro"]) && $_POST["parametro"] == "cu"){
+if(isset($_POST["parametro"]) && $_POST["parametro"] == "cu"){
     echo $servicio->addUser($_POST["usuario"], "nuevo123", $_POST["tipo"], $_POST["telefono"], $_POST["nombre"], $_POST["apellido"] );
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == "du"){
     echo $servicio->deleteUser($_POST["id"]);
@@ -50,7 +50,7 @@ include('./soap/service.php');
 
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
 
-}*/
+}
 
 
 ?>

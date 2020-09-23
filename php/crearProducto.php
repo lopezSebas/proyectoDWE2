@@ -1,6 +1,6 @@
 <?php
 include ("menu.php");
-include('./php/service.php');
+include('./soap/service.php');
 ?>
 <!DOCTYPE html>
 <head>
