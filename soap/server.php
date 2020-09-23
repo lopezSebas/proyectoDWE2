@@ -383,7 +383,7 @@ class server {
         $tipo = $params['tipo'];
         $fecha_modificacion = $params['fecha_modificacion'];
         
-        $query = "INSERT INTO public.inventario(id_producto, id_sucursal, id_proveedor, estado, tipo, fehca_modificacion) values( $id_producto, $id_sucursal, $id_proveedor,'$estado','$tipo', $fecha_modificacion)";
+        $query = "INSERT INTO public.inventario(id_producto, id_sucursal, id_proveedor, estado, tipo, fecha_modificacion) values( $id_producto, $id_sucursal, $id_proveedor,'$estado','$tipo', $fecha_modificacion)";
         return pg_query($this->connection, $query) ? $query : false;
     }
 
@@ -397,7 +397,7 @@ class server {
         $tipo = $params['tipo'];
         $fecha_modificacion = $params['fecha_modificacion'];
         
-        $query = "UPDATE public.inventario set id_producto=$id_producto , id_sucursal=$id_sucursal, id_proveedor=$id_proveedor, estado='$estado', tipo='$tipo', fehca_modificacion=$fecha_modificacion where id=$id";
+        $query = "UPDATE public.inventario set id_producto=$id_producto , id_sucursal=$id_sucursal, id_proveedor=$id_proveedor, estado='$estado', tipo='$tipo', fecha_modificacion=$fecha_modificacion where id=$id";
         return pg_query($this->connection, $query) ? $query : false;
     }
 
