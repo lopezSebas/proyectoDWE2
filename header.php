@@ -6,9 +6,8 @@
     <title>Parcial 2</title>
     <link rel="stylesheet" href="css/main.css">
     <link href='../css/main.css' type='text/css' rel='stylesheet'/>
-    <script type="text/javascript" src="js/script.js"></script>
     <script src="../js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="../js/script.js?v2"></script>
+    <script type="text/javascript" src="../js/script.js?v22"></script>
 </head>
 <body>
     <header id="pageHeader">

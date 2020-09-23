@@ -312,6 +312,134 @@ function editarProducto(url){
     }
 }
 
+function crearSucursal(){
+    var parametro = "cs";
+    var nombre = document.getElementById("nombre").value;
+    var direccion = document.getElementById("direccion").value;
+    var correo = document.getElementById("correo").value;
+    var telefono = document.getElementById("telefono").value;
+
+    document.getElementById("nombre").style.borderColor = "inherit";
+    document.getElementById("direccion").style.borderColor = "inherit";
+    document.getElementById("correo").style.borderColor = "inherit";
+    document.getElementById("telefono").style.borderColor = "inherit";
+
+    if(nombre == ""){
+        document.getElementById("nombre").style.borderColor  = "red";
+        document.getElementById("nombre").focus();
+        alert("Debe ingresar un nombre");
+    }else if(direccion == ""){
+        document.getElementById("direccion").style.borderColor  = "red";
+        document.getElementById("direccion").focus();
+        alert("Debe ingresar un direccion");
+    }else if(correo == ""){
+        document.getElementById("correo").style.borderColor  = "red";
+        document.getElementById("correo").focus();
+        alert("Debe ingresar un correo");
+    }else if(telefono == ""){
+        document.getElementById("telefono").style.borderColor  = "red";
+        document.getElementById("telefono").focus();
+        alert("Debe ingresar un telefono");
+    }else{
+        $.ajax({
+            url: "consumir_soap.php",
+            type: 'POST',
+            data: {
+                parametro:parametro,
+                nombre:nombre,
+                direccion:direccion,
+                correo:correo,
+                telefono:telefono,
+        },
+        cache: false,
+            success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                alert("Ingresado exitosamente");
+                location.href = "home.php";
+            }else{
+                alert("No se pudo ingresar, favor revisar.");
+            }
+        }
+    });
+    }
+}
+function eliminarSucursal(id){
+    var parametro = "ds";
+
+    $.ajax({
+        url: "consumir_soap.php",
+        type: 'POST',
+        data: {
+            parametro:parametro,
+            id:id,
+        },
+        cache: false,
+        success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                alert("Eliminado exitosamente");
+                location.href = "home.php";
+            }else{
+                alert("No se pudo Eliminar, favor revisar.");
+            }
+        }
+    });
+}
+function editarSucursal(){
+    var parametro = "es";
+    var nombre = document.getElementById("nombre").value;
+    var direccion = document.getElementById("direccion").value;
+    var correo = document.getElementById("correo").value;
+    var telefono = document.getElementById("telefono").value;
+    var id = document.getElementById("id").value;
+
+    document.getElementById("nombre").style.borderColor = "inherit";
+    document.getElementById("direccion").style.borderColor = "inherit";
+    document.getElementById("correo").style.borderColor = "inherit";
+    document.getElementById("telefono").style.borderColor = "inherit";
+
+    if(nombre == ""){
+        document.getElementById("nombre").style.borderColor  = "red";
+        document.getElementById("nombre").focus();
+        alert("Debe ingresar un nombre");
+    }else if(direccion == ""){
+        document.getElementById("direccion").style.borderColor  = "red";
+        document.getElementById("direccion").focus();
+        alert("Debe ingresar un direccion");
+    }else if(correo == ""){
+        document.getElementById("correo").style.borderColor  = "red";
+        document.getElementById("correo").focus();
+        alert("Debe ingresar un correo");
+    }else if(telefono == ""){
+        document.getElementById("telefono").style.borderColor  = "red";
+        document.getElementById("telefono").focus();
+        alert("Debe ingresar un telefono");
+    }else{
+
+        $.ajax({
+            url: "consumir_soap.php",
+            type: 'POST',
+            data: {
+                parametro:parametro,
+                nombre:nombre,
+                direccion:direccion,
+                correo:correo,
+                telefono:telefono,
+                id:id,
+            },
+        cache: false,
+            success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                alert("Actualizado exitosamente");
+                location.href = "home.php";
+            }else{
+                alert("No se pudo actualizar, favor revisar.");
+            }
+        }
+    });
+    }
+}
+
+
 /*
 //formato
 
@@ -362,10 +490,11 @@ function crear(){
 }
 function editar(){
     var parametro = "e";
-    var  = document.getElementById("").value;
-    var  = document.getElementById("").value;
-    var  = document.getElementById("").value;
+
     var id = document.getElementById("id").value;
+    var  = document.getElementById("").value;
+    var  = document.getElementById("").value;
+    var  = document.getElementById("").value;
 
     document.getElementById("").style.borderColor = "inherit";
     document.getElementById("").style.borderColor = "inherit";
@@ -393,7 +522,7 @@ function editar(){
                 :,
                 :,
                 :,
-                id_pedido:id,
+                id:id,
             },
             cache: false,
             success: function (respuesta) {

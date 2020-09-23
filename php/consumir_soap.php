@@ -49,6 +49,12 @@ if (is_array($_FILES) && count($_FILES) > 0) {
     echo $servicio->deleteProduct($_POST["id"]);
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == "ep"){
     echo $servicio->editProduct($_POST["id"],$_POST["codigo"],$_POST["descripcion"],$_POST["marca"],$_POST["tipo"],$_POST["url"]);
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "cs"){
+    echo $servicio->addWH($_POST["nombre"],$_POST["direccion"],$_POST["correo"],$_POST["telefono"]);
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "ds"){
+    echo $servicio->deleteWH($_POST["id"]);
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "es"){
+    echo $servicio->editWH($_POST["id"],$_POST["nombre"],$_POST["direccion"],$_POST["correo"],$_POST["telefono"]);
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
 
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
