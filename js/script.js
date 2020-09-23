@@ -1,3 +1,4 @@
+
 function crearUsuario(){
     var parametro = "cu";
     var nombre = document.getElementById("nombre").value;
@@ -145,6 +146,171 @@ function editarUsuario(){
     }
 }
 
+(function ($) {
+    "use strict";
+    $(document).ready(function() {
+        $(".upload").on('click', function() {
+            var formData = new FormData();
+            var imagen = $('#image')[0].files[0];
+            var urlOld = document.getElementById("urlOld").value;
+            formData.append('imagen',imagen);
+            $.ajax({
+                url: 'consumir_soap.php',
+                type: 'post',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    if (response != 1 &&  response != 2) {
+                        if(urlOld == 0){
+                            crearProducto(response);
+                        }else{
+                            if(response == "|" || response == ""){
+                                editarProducto(urlOld);
+                            }else{
+                                editarProducto(response);
+                            }
+                        }
+                    } else {
+                        alert('Formato de imagen incorrecto.');
+                    }
+                }
+            });
+            return false;
+        });
+    });
+})(jQuery);
+function crearProducto(url){
+
+    var parametro = "cp";
+    var codigo = document.getElementById("codigo").value;
+    var descripcion = document.getElementById("descripcion").value;
+    var marca = document.getElementById("marca").value;
+    var tipo = document.getElementById("tipo").value;
+
+    document.getElementById("codigo").style.borderColor = "inherit";
+    document.getElementById("descripcion").style.borderColor = "inherit";
+    document.getElementById("marca").style.borderColor = "inherit";
+    document.getElementById("tipo").style.borderColor = "inherit";
+    document.getElementById("image").style.borderColor = "inherit";
+
+    if(codigo == ""){
+        document.getElementById("codigo").style.borderColor  = "red";
+        document.getElementById("codigo").focus();
+        alert("Debe ingresar un  codigo");
+    }else if(descripcion == ""){
+        document.getElementById("descripcion").style.borderColor  = "red";
+        document.getElementById("descripcion").focus();
+        alert("Debe ingresar una descripcion");
+    }else if(marca == ""){
+        document.getElementById("marca").style.borderColor  = "red";
+        document.getElementById("marca").focus();
+        alert("Debe ingresar un marca");
+    }else if(tipo == ""){
+        document.getElementById("tipo").style.borderColor  = "red";
+        document.getElementById("tipo").focus();
+        alert("Debe ingresar un tipo");
+    }else{
+        $.ajax({
+            url: "consumir_soap.php",
+            type: 'POST',
+            data: {
+                parametro:parametro,
+                codigo:codigo,
+                descripcion:descripcion,
+                marca:marca,
+                tipo:tipo,
+                url:url,
+            },
+            cache: false,
+            success: function (respuesta) {
+                if(respuesta.trim() == 1){
+                    alert("Producto ingresado exitosamente");
+                    location.href = "home.php";
+                }else{
+                    alert("No se pudo ingresar, favor revisar.");
+                }
+            }
+        });
+    }
+}
+function eliminarProducto(id){
+    var parametro = "dp";
+
+    $.ajax({
+        url: "consumir_soap.php",
+        type: 'POST',
+        data: {
+            parametro:parametro,
+            id:id,
+        },
+        cache: false,
+        success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                alert("Eliminado exitosamente");
+                location.href = "home.php";
+            }else{
+                alert("No se pudo Eliminar, favor revisar.");
+            }
+        }
+    });
+}
+function editarProducto(url){
+    var parametro = "ep";
+    var codigo = document.getElementById("codigo").value;
+    var descripcion = document.getElementById("descripcion").value;
+    var marca = document.getElementById("marca").value;
+    var tipo = document.getElementById("tipo").value;
+    var id = document.getElementById("id").value;
+
+    document.getElementById("codigo").style.borderColor = "inherit";
+    document.getElementById("descripcion").style.borderColor = "inherit";
+    document.getElementById("marca").style.borderColor = "inherit";
+    document.getElementById("tipo").style.borderColor = "inherit";
+    document.getElementById("image").style.borderColor = "inherit";
+
+    if(codigo == ""){
+        document.getElementById("codigo").style.borderColor  = "red";
+        document.getElementById("codigo").focus();
+        alert("Debe ingresar un  codigo");
+    }else if(descripcion == ""){
+        document.getElementById("descripcion").style.borderColor  = "red";
+        document.getElementById("descripcion").focus();
+        alert("Debe ingresar una descripcion");
+    }else if(marca == ""){
+        document.getElementById("marca").style.borderColor  = "red";
+        document.getElementById("marca").focus();
+        alert("Debe ingresar un marca");
+    }else if(tipo == ""){
+        document.getElementById("tipo").style.borderColor  = "red";
+        document.getElementById("tipo").focus();
+        alert("Debe ingresar un tipo");
+    }else{
+
+        $.ajax({
+            url: "consumir_soap.php",
+            type: 'POST',
+            data: {
+                parametro:parametro,
+                codigo:codigo,
+                descripcion:descripcion,
+                marca:marca,
+                tipo:tipo,
+                url:url,
+                id:id,
+            },
+            cache: false,
+            success: function (respuesta) {
+                if(respuesta.trim() == 1){
+                    alert("Actualizado exitosamente");
+                    location.href = "home.php";
+                }else{
+                    alert("No se pudo actualizar, favor revisar.");
+                }
+            }
+        });
+    }
+}
 
 /*
 //formato
@@ -185,10 +351,10 @@ function crear(){
             cache: false,
             success: function (respuesta) {
                 if(respuesta.trim() == 1){
-                    alert(" ingresado exitosamente");
+                    alert("Ingresado exitosamente");
                     location.href = "home.php";
                 }else{
-                    alert("No se pudo ingresar el pedido, favor revisar.");
+                    alert("No se pudo ingresar, favor revisar.");
                 }
             }
         });
@@ -232,10 +398,10 @@ function editar(){
             cache: false,
             success: function (respuesta) {
                 if(respuesta.trim() == 1){
-                    alert(" actualizado exitosamente");
+                    alert("Actualizado exitosamente");
                     location.href = "home.php";
                 }else{
-                    alert("No se pudo actualizar el pedido, favor revisar.");
+                    alert("No se pudo actualizar, favor revisar.");
                 }
             }
         });
@@ -249,15 +415,15 @@ function eliminar(id){
         type: 'POST',
         data: {
             parametro:parametro,
-            id_pedido:id,
+            id:id,
         },
         cache: false,
         success: function (respuesta) {
             if(respuesta.trim() == 1){
-                alert(" Eliminado exitosamente");
+                alert("Eliminado exitosamente");
                 location.href = "home.php";
             }else{
-                alert("No se pudo Eliminar el pedido, favor revisar.");
+                alert("No se pudo Eliminar, favor revisar.");
             }
         }
     });

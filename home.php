@@ -1,3 +1,6 @@
+<?php
+include("php/menu.php")
+?>
 <!DOCTYPE html>
 <head>
     <script src="https://kit.fontawesome.com/7bf3b56285.js" crossorigin="anonymous"></script>
@@ -11,3 +14,7 @@
     <header id="pageHeader">
         <img src="res/umg.png" alt="" class="logo">
     </header>
+    <?php echo menu(); ?>
+    <article id="mainArticle">Article</article>
+    <?php echo footer(); ?>
+</body>
