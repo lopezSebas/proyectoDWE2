@@ -1,4 +1,4 @@
-<?php include ("header.php")?>
+<?php include ("../header.php")?>
 <article id="mainArticle">
     <div class="container">
         <div class="content-body">

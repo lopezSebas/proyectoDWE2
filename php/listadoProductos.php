@@ -29,7 +29,7 @@ include("../soap/service.php");
                         echo "<td>{$array['descripcion']}</td>\n";
                         echo "<td>{$array['marca']}</td>\n";
                         echo "<td>{$array['tipo']}</td>\n";
-                        echo "<td>{$array['url']}</td>\n";
+                        echo "<td><img src=\"../imagenes/{$array['url']}\"></td>\n";
                         echo "<td><a href=\"editarProducto.php?id=".$array['id']."\" class=\"btn-amarillo\" >Editar</a></td>";
                         echo "<td><a onclick='eliminarProducto({$array['id']})' class=\"btn-rojo\" >Eliminar</a></td>";
                     echo "</tr>\n";

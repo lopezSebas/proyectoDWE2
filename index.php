@@ -4,7 +4,7 @@
         <div class="items-header">
             <p>Search Nav</p>
         </div>
-        <div class="items">
+        <div class="shop-items">
             <?php include ("shop-item.php")?>
             <?php include ("shop-item.php")?>
             <?php include ("shop-item.php")?>
