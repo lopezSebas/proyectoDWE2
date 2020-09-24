@@ -22,7 +22,7 @@ include('../soap/service.php');
 
     #LIST
     
-    #print_r($servicio->listDetalles());
+    print_r($servicio->listInventario());
     #print_r($servicio->getDetalle(1));
     #echo " <br/> exec @ " . date("Y-m-d H:i:s");
 
