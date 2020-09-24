@@ -97,7 +97,7 @@ nav img:hover{
   grid-area: items-header;
   /* border: 1px solid #000; */
 }
-.items{
+.shop-items{
   grid-area: items;
   overflow-y: scroll;
   /* border: 1px solid #000; */
