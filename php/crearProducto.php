@@ -18,7 +18,7 @@
                 </div>
                 <div class=formulario">
                     <labe>Tipo</labe>
-                    <input type="text" name=""  id="tipo" placeholder="Marca">
+                    <input type="text" name=""  id="tipo" placeholder="Tipo">
                 </div>
                 <div class=formulario">
                     <labe>Imagen</labe>

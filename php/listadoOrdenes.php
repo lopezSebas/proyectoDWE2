@@ -24,13 +24,13 @@ include('../soap/service.php');
                     <?php
                     foreach ( $servicio->listOrders() as $array ) {
                         echo "<tr>\n";
-                        echo "<td>{$array['id_usuario']}</td>\n";
-                        echo "<td>{$array['id_proveedor']}</td>\n";
+                        echo "<td>{$array['nombre']} {$array['apellido']}</td>\n";
+                        echo "<td>{$array['proveedor']}</td>\n";
                         echo "<td>{$array['fecha']}</td>\n";
                         echo "<td>{$array['estado']}</td>\n";
                         echo "<td>{$array['fecha_entrega']}</td>\n";
 //                        echo "<td><a href=\"editarInventario.php?id=".$array['id']."\" class=\"btn-amarillo\" >Editar</a></td>";
-//                        echo "<td><a onclick='cancelarOrden({$array['id']})' class=\"btn-rojo\" >Cancelar</a></td>";
+                        echo "<td><a onclick='cancelarOrden({$array['id']})' class=\"btn-rojo\" >Cancelar</a></td>";
                         echo "</tr>\n";
                     }
                     ?>

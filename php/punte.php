@@ -42,6 +42,8 @@ if (is_array($_FILES) && count($_FILES) > 0) {
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == "ei"){
     echo $servicio->editInventario($_POST["id"],$_POST["producto"],$_POST["sucursal"],$_POST["proveedor"],'Disponible','',date("Y-m-d H:i:s"));
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == "oc"){
-
+    echo $servicio->changeOrderStatus($_POST["id"],'Cancelado');
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "in"){
+    echo base64_decode($_POST["pass"]). " " .base64_decode($_POST["user"]);
 }
 ?>

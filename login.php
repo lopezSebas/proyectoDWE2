@@ -1,4 +1,6 @@
 <?php include ("header.php")?>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
 <article id="mainArticle">
     <div class="login">
         <div class="box">
@@ -6,13 +8,13 @@
                 <label>INICIAR SESION</label>
             </div>
             <div class="loginUser">
-                <input type='text' id='user' placeholder="Usuario"/>
+                <input type='text' id='user' placeholder="Usuario" />
             </div>
             <div class="loginPass">
-                <input type='text' id='pass' placeholder="Contraseña"/> 
+                <input type='password' id='pass' placeholder="Contraseña"/>
             </div>
             <div class="loginBtn">
-                <input type="submit" class="btn-verde" value="INGRESAR">
+                <input type="submit" class="btn-verde" onclick="login()" value="INGRESAR">
             </div>
         </div>
     </div>

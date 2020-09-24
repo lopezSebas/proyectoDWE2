@@ -24,7 +24,7 @@ $resultado = $servicio->getWH($_GET["id"]);
                     <input type="text" name=""  id="telefono" placeholder="Télefono" value="<?php echo $resultado["0"]['telefono']; ?>">
                 </div>
                 <input type="hidden" id="id" value="<?php echo $_GET["id"] ?>">
-                <input type="submit" class="btn-verde" onclick="editarSucursal()" value="Guardar">
+                <input type="submit" class="btn-verde" onclick="editarSucursal()" value="Actualizar">
             </div>
         </div>
     </article>

@@ -39,7 +39,7 @@ $resultado = $servicio->getSupplier($_GET["id"]);
                     </select>
                 </div>
                 <input type="hidden" id="id" value="<?php echo $_GET["id"] ?>">
-                <input type="submit" class="btn-verde" onclick="editarSucursal()" value="Actualizar">
+                <input type="submit" class="btn-verde" onclick="editarProveedor()" value="Actualizar">
             </div>
         </div>
     </article>

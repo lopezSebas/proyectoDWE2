@@ -165,7 +165,7 @@ function editarUsuario(){
                         if(urlOld == 0){
                             crearProducto(response);
                         }else{
-                            if(response == "|" || response == ""){
+                            if(response == ""){
                                 editarProducto(urlOld);
                             }else{
                                 editarProducto(response);
@@ -226,7 +226,7 @@ function crearProducto(url){
             success: function (respuesta) {
                 if(respuesta.trim() == 1){
                     alert("Producto ingresado exitosamente");
-                    location.href = "home.php";
+                    location.href = "listadoProductos.php";
                 }else{
                     alert("No se pudo ingresar, favor revisar.");
                 }
@@ -248,7 +248,7 @@ function eliminarProducto(id){
         success: function (respuesta) {
             if(respuesta.trim() == 1){
                 alert("Eliminado exitosamente");
-                location.href = "home.php";
+                location.href = "listadoProductos.php";
             }else{
                 alert("No se pudo Eliminar, favor revisar.");
             }
@@ -303,7 +303,7 @@ function editarProducto(url){
             success: function (respuesta) {
                 if(respuesta.trim() == 1){
                     alert("Actualizado exitosamente");
-                    location.href = "home.php";
+                    location.href = "listadoProductos.php";
                 }else{
                     alert("No se pudo actualizar, favor revisar.");
                 }
@@ -355,7 +355,7 @@ function crearSucursal(){
             success: function (respuesta) {
             if(respuesta.trim() == 1){
                 alert("Ingresado exitosamente");
-                location.href = "home.php";
+                location.href = "listadoSucursales.php";
             }else{
                 alert("No se pudo ingresar, favor revisar.");
             }
@@ -377,7 +377,7 @@ function eliminarSucursal(id){
         success: function (respuesta) {
             if(respuesta.trim() == 1){
                 alert("Eliminado exitosamente");
-                location.href = "home.php";
+                location.href = "listadoSucursales.php";
             }else{
                 alert("No se pudo Eliminar, favor revisar.");
             }
@@ -430,7 +430,7 @@ function editarSucursal(){
             success: function (respuesta) {
             if(respuesta.trim() == 1){
                 alert("Actualizado exitosamente");
-                location.href = "home.php";
+                location.href = "listadoSucursales.php";
             }else{
                 alert("No se pudo actualizar, favor revisar.");
             }
@@ -489,7 +489,7 @@ function crearProveedor(){
             success: function (respuesta) {
                 if(respuesta.trim() == 1){
                     alert("Ingresado exitosamente");
-                    location.href = "home.php";
+                    location.href = "listadoProvedores.php";
                 }else{
                     alert("No se pudo ingresar, favor revisar.");
                 }
@@ -511,14 +511,14 @@ function eliminarProveedor(id){
         success: function (respuesta) {
             if(respuesta.trim() == 1){
                 alert("Eliminado exitosamente");
-                location.href = "home.php";
+                location.href = "listadoProvedores.php";
             }else{
                 alert("No se pudo Eliminar, favor revisar.");
             }
         }
     });
 }
-function editarSucursal(){
+function editarProveedor(){
     var parametro = "epr";
 
     var id = document.getElementById("id").value;
@@ -571,7 +571,7 @@ function editarSucursal(){
             success: function (respuesta) {
             if(respuesta.trim() == 1){
                 alert("Actualizado exitosamente");
-                location.href = "home.php";
+                location.href = "listadoProvedores.php";
             }else{
                 alert("No se pudo actualizar, favor revisar.");
             }
@@ -617,7 +617,7 @@ function crearInventario(){
             success: function (respuesta) {
                 if(respuesta.trim() == 1){
                     alert("Ingresado exitosamente");
-                    location.href = "home.php";
+                    location.href = "listadoInventario.php";
                 }else{
                     alert("No se pudo ingresar, favor revisar.");
                 }
@@ -639,7 +639,7 @@ function eliminarInventario(id){
         success: function (respuesta) {
             if(respuesta.trim() == 1){
                 alert("Eliminado exitosamente");
-                location.href = "home.php";
+                location.href = "listadoInventario.php";
             }else{
                 alert("No se pudo Eliminar, favor revisar.");
             }
@@ -686,7 +686,7 @@ function editarInventario(){
             success: function (respuesta) {
                 if(respuesta.trim() == 1){
                     alert("Actualizado exitosamente");
-                    location.href = "home.php";
+                    location.href = "listadoInventario.php";
                 }else{
                     alert("No se pudo actualizar, favor revisar.");
                 }
@@ -708,7 +708,7 @@ function cancelarOrden(id){
         success: function (respuesta) {
             if(respuesta.trim() == 1){
                 alert("Eliminado exitosamente");
-                location.href = "home.php";
+                location.href = "listadoOrdenes.php";
             }else{
                 alert("No se pudo Eliminar, favor revisar.");
             }
