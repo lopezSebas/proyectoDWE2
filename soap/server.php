@@ -342,6 +342,7 @@ class server {
         $data = array();
         while ( $row = pg_fetch_assoc($result) ) {            
             array_push($data, array(
+                "id" => $row['id'],
                 "id_producto" => $row['id_producto'],
                 "codigo" => $row['codigo'],
                 "marca" => $row['marca'],
