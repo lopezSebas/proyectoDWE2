@@ -15,8 +15,8 @@
                 <labe>Tipo</labe>
                 <select name="" id="tipo" >
                     <option value="null">Seleccione tipo</option>
-                    <option value="1">Colaborador</option>
-                    <option value="2">Cliente</option>
+                    <option value="Colaborador">Colaborador</option>
+                    <option value="Cliente">Cliente</option>
                 </select>
             </div>
             <div class=input">

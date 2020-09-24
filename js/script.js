@@ -439,6 +439,146 @@ function editarSucursal(){
     }
 }
 
+function crearProveedor(){
+    var parametro = "cpr";
+    var nombre = document.getElementById("nombre").value;
+    var nit = document.getElementById("nit").value;
+    var correo = document.getElementById("correo").value;
+    var telefono = document.getElementById("telefono").value;
+    var tipo = document.getElementById("tipo").value;
+
+    document.getElementById("nombre").style.borderColor = "inherit";
+    document.getElementById("nit").style.borderColor = "inherit";
+    document.getElementById("correo").style.borderColor = "inherit";
+    document.getElementById("telefono").style.borderColor = "inherit";
+    document.getElementById("tipo").style.borderColor = "inherit";
+
+    if(nombre == ""){
+        document.getElementById("nombre").style.borderColor  = "red";
+        document.getElementById("nombre").focus();
+        alert("Debe ingresar un nombre");
+    }else if(nit == ""){
+        document.getElementById("nit").style.borderColor  = "red";
+        document.getElementById("nit").focus();
+        alert("Debe ingresar un nit");
+    }else if(correo == ""){
+        document.getElementById("correo").style.borderColor  = "red";
+        document.getElementById("correo").focus();
+        alert("Debe ingresar un correo");
+    }else if(telefono == ""){
+        document.getElementById("telefono").style.borderColor  = "red";
+        document.getElementById("telefono").focus();
+        alert("Debe ingresar un telefono");
+    }else if(tipo == "null"){
+        document.getElementById("tipo").style.borderColor  = "red";
+        document.getElementById("tipo").focus();
+        alert("Debe seleccionar un tipo");
+    }else{
+        $.ajax({
+            url: "consumir_soap.php",
+            type: 'POST',
+            data: {
+                parametro:parametro,
+                nombre:nombre,
+                nit:nit,
+                correo:correo,
+                telefono:telefono,
+                tipo:tipo,
+            },
+            cache: false,
+            success: function (respuesta) {
+                if(respuesta.trim() == 1){
+                    alert("Ingresado exitosamente");
+                    location.href = "home.php";
+                }else{
+                    alert("No se pudo ingresar, favor revisar.");
+                }
+            }
+        });
+    }
+}
+function eliminarProveedor(id){
+    var parametro = "dpr";
+
+    $.ajax({
+        url: "consumir_soap.php",
+        type: 'POST',
+        data: {
+            parametro:parametro,
+            id:id,
+        },
+        cache: false,
+        success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                alert("Eliminado exitosamente");
+                location.href = "home.php";
+            }else{
+                alert("No se pudo Eliminar, favor revisar.");
+            }
+        }
+    });
+}
+function editarSucursal(){
+    var parametro = "epr";
+
+    var id = document.getElementById("id").value;
+    var nombre = document.getElementById("nombre").value;
+    var nit = document.getElementById("nit").value;
+    var correo = document.getElementById("correo").value;
+    var telefono = document.getElementById("telefono").value;
+    var tipo = document.getElementById("tipo").value;
+
+    document.getElementById("nombre").style.borderColor = "inherit";
+    document.getElementById("nit").style.borderColor = "inherit";
+    document.getElementById("correo").style.borderColor = "inherit";
+    document.getElementById("telefono").style.borderColor = "inherit";
+    document.getElementById("tipo").style.borderColor = "inherit";
+
+    if(nombre == ""){
+        document.getElementById("nombre").style.borderColor  = "red";
+        document.getElementById("nombre").focus();
+        alert("Debe ingresar un nombre");
+    }else if(nit == ""){
+        document.getElementById("nit").style.borderColor  = "red";
+        document.getElementById("nit").focus();
+        alert("Debe ingresar un nit");
+    }else if(correo == ""){
+        document.getElementById("correo").style.borderColor  = "red";
+        document.getElementById("correo").focus();
+        alert("Debe ingresar un correo");
+    }else if(telefono == ""){
+        document.getElementById("telefono").style.borderColor  = "red";
+        document.getElementById("telefono").focus();
+        alert("Debe ingresar un telefono");
+    }else if(tipo == "null") {
+        document.getElementById("tipo").style.borderColor = "red";
+        document.getElementById("tipo").focus();
+        alert("Debe seleccionar un tipo");
+    }else{
+        $.ajax({
+            url: "consumir_soap.php",
+            type: 'POST',
+            data: {
+                parametro:parametro,
+                nombre:nombre,
+                nit:nit,
+                correo:correo,
+                telefono:telefono,
+                tipo:tipo,
+                id:id,
+            },
+        cache: false,
+            success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                alert("Actualizado exitosamente");
+                location.href = "home.php";
+            }else{
+                alert("No se pudo actualizar, favor revisar.");
+            }
+        }
+    });
+    }
+}
 
 /*
 //formato

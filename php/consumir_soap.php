@@ -55,12 +55,12 @@ if (is_array($_FILES) && count($_FILES) > 0) {
     echo $servicio->deleteWH($_POST["id"]);
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == "es"){
     echo $servicio->editWH($_POST["id"],$_POST["nombre"],$_POST["direccion"],$_POST["correo"],$_POST["telefono"]);
-}else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
-
-}else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
-
-}else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
-
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "cpr"){
+    echo $servicio->addSupplier($_POST["nombre"],$_POST["nit"],$_POST["correo"],$_POST["telefono"],$_POST["tipo"]);
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "dpr"){
+    echo $servicio->deleteSupplier($_POST["id"]);
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "epr"){
+    echo $servicio->editSupplier($_POST["id"],$_POST["nombre"],$_POST["nit"],$_POST["correo"],$_POST["telefono"],$_POST["tipo"]);
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
 
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
