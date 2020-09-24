@@ -335,15 +335,20 @@ class server {
 
     public function listInventario() {
 
-        $query = "Select * from public.inventario order by id";
+        $query = 'Select i.id, i.id_producto, p.codigo, p.marca, p.tipo, p.url, i.id_sucursal, s.nombre "sucursal", i.id_proveedor, pv.nombre "proveedor", i.estado, i.tipo, i.fecha_modificacion from public.inventario i inner join public.productos p on p.id = i.id_producto inner join public.sucursales s on s.id = i.id_sucursal inner join public.proveedores pv on pv.id = i.id_proveedor order by i.id';
         $result = pg_query($this->connection, $query);
         
         $data = array();
         while ( $row = pg_fetch_assoc($result) ) {            
             array_push($data, array(
                 "id_producto" => $row['id_producto'],
+                "codigo" => $row['codigo'],
+                "marca" => $row['marca'],
+                "tipo_producto" => $row['tipo_producto'],
                 "id_sucursal" => $row['id_sucursal'],
+                "sucursal" => $row['sucursal'],
                 "id_proveedor" => $row['id_proveedor'],
+                "proveedor" => $row['proveedor'],
                 "estado" => $row['estado'],
                 "tipo" => $row['tipo'],
                 "fecha_modificacion" => $row['fecha_modificacion']
