@@ -120,6 +120,14 @@ class client {
     public function listInventario() {
         return $this->instance->__soapCall('listInventario', array(null));
     }
+
+    public function listInventarioDisponible() {
+        return $this->instance->__soapCall('listInventarioDisponible', array(null));
+    }
+
+    public function listInventarioEntregado() {
+        return $this->instance->__soapCall('listInventarioEntregado', array(null));
+    }
     
     public function getInventario($params) {
         return $this->instance->__soapCall('getInventario', array($params));
@@ -149,6 +157,10 @@ class client {
     
     public function getOrder($params) {
         return $this->instance->__soapCall('getOrder', array($params));
+    }
+
+    public function changeOrderStatus($params) {
+        return $this->instance->__soapCall('changeOrderStatus', array($params));
     }
 
     public function addOrden($params) {

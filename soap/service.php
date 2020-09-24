@@ -190,8 +190,16 @@ class SistemaVentas {
         return $this->client->listInventario();
     }
 
+    public function listInventarioDisponible() {
+        return $this->client->listInventarioDisponible();
+    }
+
+    public function listInventarioEntregado() {
+        return $this->client->listInventario();
+    }
+
     public function getInventario( $id ) {                
-        return $this->client->getInventario(array(
+        return $this->client->getInventarioEntregado(array(
             "id" => $id
         ));
     }
@@ -238,6 +246,13 @@ class SistemaVentas {
     public function getOrder( $id ) {                
         return $this->client->getOrder(array(
             "id" => $id
+        ));
+    }
+
+    public function changeOrderStatus( $id, $status ) {
+        return $this->client->changeOrderStatus(array(
+            "id" => $id, 
+            "estado" => $status
         ));
     }
 
