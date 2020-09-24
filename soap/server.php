@@ -335,7 +335,7 @@ class server {
 
     public function listInventario() {
 
-        $query = 'Select i.id, i.id_producto, p.codigo, p.marca, p.tipo "tipo_producto", p.url, i.id_sucursal, s.nombre "sucursal", i.id_proveedor, pv.nombre "proveedor", i.estado, i.tipo, i.fecha_modificacion from public.inventario i inner join public.productos p on p.id = i.id_producto inner join public.sucursales s on s.id = i.id_sucursal inner join public.proveedores pv on pv.id = i.id_proveedor order by i.id desc';
+        $query = 'Select i.id, i.id_producto, p.codigo, p.marca, p.tipo "tipo_producto", p.url, p.descripcion, i.id_sucursal, s.nombre "sucursal", i.id_proveedor, pv.nombre "proveedor", i.estado, i.tipo, i.fecha_modificacion from public.inventario i inner join public.productos p on p.id = i.id_producto inner join public.sucursales s on s.id = i.id_sucursal inner join public.proveedores pv on pv.id = i.id_proveedor order by i.id desc';
 
         $result = pg_query($this->connection, $query);
         
@@ -347,6 +347,7 @@ class server {
                 "codigo" => $row['codigo'],
                 "marca" => $row['marca'],
                 "tipo_producto" => $row['tipo_producto'],
+                "descripcion" => $row['descripcion'],
                 "id_sucursal" => $row['id_sucursal'],
                 "sucursal" => $row['sucursal'],
                 "id_proveedor" => $row['id_proveedor'],
