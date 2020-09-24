@@ -35,7 +35,7 @@ function crearUsuario(){
         alert("Debe ingresar un usuario");
     }else{
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -61,7 +61,7 @@ function eliminarUsuario(id){
     var parametro = "du";
 
     $.ajax({
-        url: "consumir_soap.php",
+        url: "punte.php",
         type: 'POST',
         data: {
             parametro:parametro,
@@ -121,7 +121,7 @@ function editarUsuario(){
         alert("Debe ingresar una contraseña");
     }else{
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -155,7 +155,7 @@ function editarUsuario(){
             var urlOld = document.getElementById("urlOld").value;
             formData.append('imagen',imagen);
             $.ajax({
-                url: 'consumir_soap.php',
+                url: 'punte.php',
                 type: 'post',
                 data: formData,
                 contentType: false,
@@ -212,7 +212,7 @@ function crearProducto(url){
         alert("Debe ingresar un tipo");
     }else{
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -238,7 +238,7 @@ function eliminarProducto(id){
     var parametro = "dp";
 
     $.ajax({
-        url: "consumir_soap.php",
+        url: "punte.php",
         type: 'POST',
         data: {
             parametro:parametro,
@@ -288,7 +288,7 @@ function editarProducto(url){
     }else{
 
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -342,7 +342,7 @@ function crearSucursal(){
         alert("Debe ingresar un telefono");
     }else{
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -367,7 +367,7 @@ function eliminarSucursal(id){
     var parametro = "ds";
 
     $.ajax({
-        url: "consumir_soap.php",
+        url: "punte.php",
         type: 'POST',
         data: {
             parametro:parametro,
@@ -416,7 +416,7 @@ function editarSucursal(){
     }else{
 
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -475,7 +475,7 @@ function crearProveedor(){
         alert("Debe seleccionar un tipo");
     }else{
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -501,7 +501,7 @@ function eliminarProveedor(id){
     var parametro = "dpr";
 
     $.ajax({
-        url: "consumir_soap.php",
+        url: "punte.php",
         type: 'POST',
         data: {
             parametro:parametro,
@@ -556,7 +556,7 @@ function editarSucursal(){
         alert("Debe seleccionar un tipo");
     }else{
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -605,7 +605,7 @@ function crearInventario(){
     }else{
 
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -629,7 +629,7 @@ function eliminarInventario(id){
     var parametro = "di";
 
     $.ajax({
-        url: "consumir_soap.php",
+        url: "punte.php",
         type: 'POST',
         data: {
             parametro:parametro,
@@ -673,7 +673,7 @@ function editarInventario(){
     }else{
 
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -698,7 +698,7 @@ function cancelarOrden(id){
     var parametro = "oc";
 
     $.ajax({
-        url: "consumir_soap.php",
+        url: "punte.php",
         type: 'POST',
         data: {
             parametro:parametro,
@@ -743,7 +743,7 @@ function crear(){
     }else{
 
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -790,7 +790,7 @@ function editar(){
     }else{
 
         $.ajax({
-            url: "consumir_soap.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -815,7 +815,7 @@ function eliminar(id){
     var parametro = "d";
 
     $.ajax({
-        url: "consumir_soap.php",
+        url: "punte.php",
         type: 'POST',
         data: {
             parametro:parametro,
