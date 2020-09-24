@@ -61,9 +61,13 @@ if (is_array($_FILES) && count($_FILES) > 0) {
     echo $servicio->deleteSupplier($_POST["id"]);
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == "epr"){
     echo $servicio->editSupplier($_POST["id"],$_POST["nombre"],$_POST["nit"],$_POST["correo"],$_POST["telefono"],$_POST["tipo"]);
-}else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
-
-}else if(isset($_POST["parametro"]) && $_POST["parametro"] == ""){
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "ci"){
+    echo $servicio->addInventario($_POST["producto"],$_POST["sucursal"],$_POST["proveedor"],'Disponible','',date("Y-m-d H:i:s"));
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "di"){
+    echo $servicio->deleteInventario($_POST["id"]);
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "ei"){
+    echo $servicio->editInventario($_POST["id"],$_POST["producto"],$_POST["sucursal"],$_POST["proveedor"],'Disponible','',date("Y-m-d H:i:s"));
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "oc"){
 
 }
 

@@ -580,6 +580,141 @@ function editarSucursal(){
     }
 }
 
+function crearInventario(){
+    var parametro = "ci";
+    var producto = document.getElementById("producto").value;
+    var sucursal = document.getElementById("sucursal").value;
+    var proveedor = document.getElementById("proveedor").value;
+
+    document.getElementById("producto").style.borderColor = "inherit";
+    document.getElementById("sucursal").style.borderColor = "inherit";
+    document.getElementById("proveedor").style.borderColor = "inherit";
+
+    if(producto == "null"){
+        document.getElementById("producto").style.borderColor  = "red";
+        document.getElementById("producto").focus();
+        alert("Debe seleccionar un producto ");
+    }else if(sucursal == "null"){
+        document.getElementById("sucursal").style.borderColor  = "red";
+        document.getElementById("sucursal").focus();
+        alert("Debe seleccionar un sucursal");
+    }else if(proveedor == "null"){
+        document.getElementById("proveedor").style.borderColor  = "red";
+        document.getElementById("proveedor").focus();
+        alert("Debe seleccionar un proveedor");
+    }else{
+
+        $.ajax({
+            url: "consumir_soap.php",
+            type: 'POST',
+            data: {
+                parametro:parametro,
+                producto:producto,
+                sucursal:sucursal,
+                proveedor:proveedor,
+            },
+            cache: false,
+            success: function (respuesta) {
+                if(respuesta.trim() == 1){
+                    alert("Ingresado exitosamente");
+                    location.href = "home.php";
+                }else{
+                    alert("No se pudo ingresar, favor revisar.");
+                }
+            }
+        });
+    }
+}
+function eliminarInventario(id){
+    var parametro = "di";
+
+    $.ajax({
+        url: "consumir_soap.php",
+        type: 'POST',
+        data: {
+            parametro:parametro,
+            id:id,
+        },
+        cache: false,
+        success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                alert("Eliminado exitosamente");
+                location.href = "home.php";
+            }else{
+                alert("No se pudo Eliminar, favor revisar.");
+            }
+        }
+    });
+}
+function editarInventario(){
+    var parametro = "ei";
+
+    var id = document.getElementById("id").value;
+    var producto = document.getElementById("producto").value;
+    var sucursal = document.getElementById("sucursal").value;
+    var proveedor = document.getElementById("proveedor").value;
+
+    document.getElementById("producto").style.borderColor = "inherit";
+    document.getElementById("sucursal").style.borderColor = "inherit";
+    document.getElementById("proveedor").style.borderColor = "inherit";
+
+    if(producto == "null"){
+        document.getElementById("producto").style.borderColor  = "red";
+        document.getElementById("producto").focus();
+        alert("Debe seleccionar un producto ");
+    }else if(sucursal == "null"){
+        document.getElementById("sucursal").style.borderColor  = "red";
+        document.getElementById("sucursal").focus();
+        alert("Debe seleccionar un sucursal");
+    }else if(proveedor == "null"){
+        document.getElementById("proveedor").style.borderColor  = "red";
+        document.getElementById("proveedor").focus();
+        alert("Debe seleccionar un proveedor");
+    }else{
+
+        $.ajax({
+            url: "consumir_soap.php",
+            type: 'POST',
+            data: {
+                parametro:parametro,
+                producto:producto,
+                sucursal:sucursal,
+                proveedor:proveedor,
+                id:id,
+            },
+            cache: false,
+            success: function (respuesta) {
+                if(respuesta.trim() == 1){
+                    alert("Actualizado exitosamente");
+                    location.href = "home.php";
+                }else{
+                    alert("No se pudo actualizar, favor revisar.");
+                }
+            }
+        });
+    }
+}
+function cancelarOrden(id){
+    var parametro = "oc";
+
+    $.ajax({
+        url: "consumir_soap.php",
+        type: 'POST',
+        data: {
+            parametro:parametro,
+            id:id,
+        },
+        cache: false,
+        success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                alert("Eliminado exitosamente");
+                location.href = "home.php";
+            }else{
+                alert("No se pudo Eliminar, favor revisar.");
+            }
+        }
+    });
+}
 /*
 //formato
 

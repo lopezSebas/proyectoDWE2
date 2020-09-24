@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link href='../css/main.css' type='text/css' rel='stylesheet'/>
     <script src="../js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="../js/script.js?v22"></script>
+    <script type="text/javascript" src="../js/script.js?v21"></script>
 </head>
 <body>
     <header id="pageHeader">
