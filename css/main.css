@@ -27,8 +27,8 @@ nav img{
   padding: 8px 8px 8px 8px;
 }
 nav img:hover{
-  background-color: #ffffff;
-  border: 1px solid #fff;
+  background-color: #247ba0;
+  border: 1px solid #247ba0;
   border-radius: 5px;
 }
 /* nav a {
@@ -219,6 +219,65 @@ nav img:hover{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+/*************************************************************************************/
+/**************************************LOGIN******************************************/
+/*************************************************************************************/
+.login{
+  display: grid;
+  grid-template-areas: 
+    ". . ."
+    ". box ."
+    ". . .";
+  grid-template-rows: 30% 40% 30%;  
+  grid-template-columns: 30% 40% 30%;
+  grid-row-gap: 0px;
+  grid-column-gap: 0px;
+  height: 90vh;
+  margin: 0;
+  background-color: lightgray;
+  font-family: Arial, Helvetica, sans-serif;
+  padding:0;
+}
+.box{
+  grid-area: box;
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 5px;
+  display: grid;
+  grid-template-areas: 
+  ". . ."
+  ". loginTitle ."
+  ". loginUser ."
+  ". loginPass ."
+  ". loginBtn ."
+  ". . .";
+  grid-template-rows: 10% 20% 20% 20% 20% 10%;  
+  grid-template-columns: 10% 80% 10%;
+  grid-row-gap: 2px;
+  grid-column-gap: 0px;
+  padding: 0;
+}
+.box > div{
+  padding:0;
+  /* border: 1px solid #000000; */
+}
+.box > input{
+  text-align: center; 
+}
+.loginTitle{
+  grid-area:loginTitle;
+  text-align: center;
+  font-size: 24px;
+}
+.loginUser{
+  grid-area:loginUser;
+}
+.loginPass{
+  grid-area:loginPass;
+}
+.loginBtn{
+  grid-area:loginBtn;
 }
 /*************************************************************************************/
 .btn-verde{
