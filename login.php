@@ -17,7 +17,6 @@
             </div>
             <div class="loginBtn">
                 <input type="submit" class="btn-verde" onclick="login()" value="INGRESAR"> 
-                <input type="submit" class="btn-verde" value="INGRESAR">
             </div>
         </div>
     </div>

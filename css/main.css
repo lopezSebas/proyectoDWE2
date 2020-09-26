@@ -95,7 +95,23 @@ nav img:hover{
 }
 .items-header{
   grid-area: items-header;
+  display: grid;
+  grid-template-areas: 
+    "search . log";
+  grid-template-rows: 1fr;  
+  grid-template-columns: 50% 40% 10%;
+  grid-row-gap: 10px;
+  grid-column-gap: 0px;
+  
   /* border: 1px solid #000; */
+}
+.search{
+  grid-area:search;
+  display:inline;
+}
+.log{
+  grid-area:log;
+  float:right;
 }
 .shop-items{
   grid-area: items;
@@ -295,9 +311,7 @@ nav img:hover{
   background-color: lightgray;
   font-family: Arial, Helvetica, sans-serif;
 }
-.cart div{
-  /* border: 1px solid #000000; */
-}
+
 .cart-items{
   grid-area: cart-items;
   overflow-y: scroll;
