@@ -10,6 +10,23 @@ class SistemaVentas {
 
     /*
         ------------------------------------------------
+        --------------      Log in        --------------
+        ------------------------------------------------
+    */
+
+    public function logIn( $user, $pass) {
+        if ( $this->client->logIn(array("usuario" => $user, "password" => $pass))) {
+            session_unset();
+            $_SESSION["usuario"] = $user;
+            return true;
+        } else {
+            session_destroy();
+            return false; 
+        }  
+    }
+
+    /*
+        ------------------------------------------------
         --------------      Usuarios      --------------
         ------------------------------------------------
     */
@@ -326,7 +343,7 @@ class SistemaVentas {
 
 }
 
-include('../soap/client.php');
+include('./soap/client.php');
 $servicio = new SistemaVentas($client);
 
 /*

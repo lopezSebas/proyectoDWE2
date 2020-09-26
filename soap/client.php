@@ -7,6 +7,17 @@ class client {
         $this->instance = new SoapClient(NULL, $params);    
     }
 
+
+    /*
+        ------------------------------------------------
+        --------------      Log in        --------------
+        ------------------------------------------------
+    */
+
+    public function logIn($params) {
+        return $this->instance->__soapCall('logIn', array($params));
+    }
+
     /*
         ------------------------------------------------
         --------------      Usuarios      --------------

@@ -21,6 +21,27 @@ class server {
         return  pg_connect($connection_string);
     }
 
+
+    /*
+        ------------------------------------------------
+        --------------      Log in        --------------
+        ------------------------------------------------
+    */
+
+    public function logIn( $params ) {
+
+        $usuario = $params['usuario'];
+        $password = $params['password'];
+
+
+        $query = "SELECT password FROM public.usuarios where usuario = '$usuario'";
+        $result = pg_query($this->connection, $query);
+        $row = pg_fetch_assoc($result);
+        $real_password = $row['password'];
+        #($real_password == $password) ? $_SESSION["usuario"] = $usuario : session_destroy();
+        return $real_password == $password; 
+    }
+
     
     /*
         ------------------------------------------------
