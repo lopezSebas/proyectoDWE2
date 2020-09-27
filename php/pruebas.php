@@ -1,6 +1,7 @@
 <?php 
     session_start();    
-    #include('./soap/service.php');
+    session_unset();
+    include('../soap/service.php');
 //print_r ($servicio->listUsers());
 
     /*
@@ -9,10 +10,12 @@
 
     */
 
-    echo "log in exitoso !!!!!!";
+    echo $servicio->logIn( "slopez", "nuevo123" );
+    ##echo $servicio->getUserId( "slopez");
+    echo "<br/><br/>$ _ S E S S I O N<br/><br/>";
     print_r($_SESSION);
     #LOG IN
-    #echo $servicio->logIn( "slopez", "nuevo123" );
+    
     #echo "-------<br/>";
     #echo "aaa" == "a";
 

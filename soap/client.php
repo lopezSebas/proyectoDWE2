@@ -32,6 +32,10 @@ class client {
         return $this->instance->__soapCall('getUser', array($params));
     }
 
+    public function getUserId($params) {
+        return $this->instance->__soapCall('getUserId', array($params));
+    }
+
     public function addUser($params) {
         return $this->instance->__soapCall('addUser', array($params));
     }

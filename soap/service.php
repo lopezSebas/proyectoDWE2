@@ -14,13 +14,17 @@ class SistemaVentas {
         ------------------------------------------------
     */
 
-    public function logIn( $user, $pass) {
-        if ( $this->client->logIn(array("usuario" => $user, "password" => $pass))) {
+    public function logIn( $user, $pass ) {
+        session_unset();
+        $datos = $this->client->logIn(array("usuario" => $user, "password" => $pass));
+        $result = false;
+        if (!empty( $datos )) {            
             $_SESSION["usuario"] = $user;
-            return true;
-        } else {
-            return false;
-        }  
+            $_SESSION["id_usuario"] = $datos['id'];
+            $result = true;
+        }
+
+        return $result;
     }
 
     /*
@@ -36,6 +40,12 @@ class SistemaVentas {
     public function getUser( $id ) {                
         return $this->client->getUser(array(
             "id" => $id
+        ));
+    }
+
+    public function getUserId( $user ) {                
+        return $this->client->getUserId(array(
+            "usuario" => $user
         ));
     }
 
@@ -343,20 +353,5 @@ class SistemaVentas {
 
 include('../soap/client.php');
 $servicio = new SistemaVentas($client);
-
-/*
-
-... Así se consume ...
-include('./client.php');
-$ventas = new SistemaVentas($client);
-echo $ventas->editUser( "2", "git", "98765", "Tester", "11223344", "Zaki", "Hauss" );
-echo " <br/> exec @ " . date("Y-m-d H:i:s");
-
-HOLA JOSSSSSSSSSSSSSSSSSSSsss
-
-*/
-
-
-
 
 ?>

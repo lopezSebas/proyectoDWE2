@@ -32,18 +32,16 @@ class server {
 
         $usuario = $params['usuario'];
         $password = $params['password'];
+        $query = "SELECT id, password FROM public.usuarios where usuario = '$usuario'";
 
-
-        $query = "SELECT password FROM public.usuarios where usuario = '$usuario'";
         $result = pg_query($this->connection, $query);
         $row = pg_fetch_assoc($result);
         $real_password = $row['password'];
-//        session_start();
-//        $_SESSION["idUser"] = $row['id'];
-        #($real_password == $password) ? $_SESSION["usuario"] = $usuario : session_destroy();
-        return $real_password == $password; 
-    }
 
+        return ($real_password == $password) ? array(
+            "id" => $row['id'], "usuario" => $usuario
+        ) : array(); 
+    }
     
     /*
         ------------------------------------------------
@@ -92,6 +90,16 @@ class server {
         }
 
         return $data;
+    }
+
+    public function getUserId($params) {
+
+        $usuario = $params['usuario'];
+        $query = "Select id from public.usuarios where usuario = '$usuario'";
+        $result = pg_query($this->connection, $query);
+        $data = array();
+
+        return pg_fetch_assoc($result)['id'];
     }
 
 
