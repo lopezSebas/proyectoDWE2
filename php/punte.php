@@ -1,5 +1,8 @@
 <?php
 include('../soap/service.php');
+session_start();
+$_SESSION["carrito"] = "";
+$_SESSION["idUser"] = "";
 
 if (is_array($_FILES) && count($_FILES) > 0) {
     if (($_FILES["imagen"]["type"] == "image/pjpeg") || ($_FILES["imagen"]["type"] == "image/jpeg") || ($_FILES["imagen"]["type"] == "image/png") || ($_FILES["imagen"]["type"] == "image/gif")) {
@@ -46,7 +49,12 @@ if (is_array($_FILES) && count($_FILES) > 0) {
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == "in"){
     echo $servicio->logIn(base64_decode($_POST["user"]),base64_decode($_POST["pass"]));
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == "lo"){
-    session_unset();
+    $_SESSION["usuario"] = "";
+    echo 1;
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "lo"){
+    $array = array();
+    session_start();
+    array_push($_SESSION["carrito"],$_POST["idProducto"]);
     echo 1;
 }
 ?>

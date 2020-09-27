@@ -1,4 +1,7 @@
-<?php session_start();?>
+<?php
+include("seguridad.php");
+session_start();
+?>
 <nav id="mainNav">
     <a href="/proyectoDWE2/php/home.php"><img src="res/home.png" title="Logout" onerror='this.onerror = null; this.src="../res/home.png"'></a>
     <a href="/proyectoDWE2/php/listadoProductos.php"><img src="res/product.png" title="Producto" onerror='this.onerror = null; this.src="../res/product.png"'></a>

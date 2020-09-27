@@ -16,7 +16,6 @@ class SistemaVentas {
 
     public function logIn( $user, $pass) {
         if ( $this->client->logIn(array("usuario" => $user, "password" => $pass))) {
-            session_start();
             $_SESSION["usuario"] = $user;
             return true;
         } else {
