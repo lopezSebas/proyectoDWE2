@@ -272,7 +272,7 @@ nav img:hover{
   ". loginPass ."
   ". loginBtn ."
   ". . .";
-  grid-template-rows: 10% 20% 20% 20% 20% 10%;  
+  grid-template-rows: 10% 20% 20% 20% 20% 10%;
   grid-template-columns: 10% 80% 10%;
   grid-row-gap: 2px;
   grid-column-gap: 0px;

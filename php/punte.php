@@ -56,5 +56,7 @@ if (is_array($_FILES) && count($_FILES) > 0) {
     session_start();
     array_push($_SESSION["carrito"],$_POST["idProducto"]);
     echo 1;
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "ru"){
+    echo $servicio->addUser($_POST["usuario"], $_POST["pass"], "Cliente", $_POST["telefono"], $_POST["nombre"], $_POST["apellido"] );
 }
 ?>

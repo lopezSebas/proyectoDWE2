@@ -1,6 +1,5 @@
 <?php
 include("seguridad.php");
-session_start();
 ?>
 <nav id="mainNav">
     <a href="/proyectoDWE2/php/home.php"><img src="res/home.png" title="Logout" onerror='this.onerror = null; this.src="../res/home.png"'></a>

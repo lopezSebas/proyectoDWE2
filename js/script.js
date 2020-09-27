@@ -735,10 +735,87 @@ function cerrarSesion(){
     });
 }
 
-function agregarCarrito(id, user){
+function agregarCarrito(idProducto, user){
 
-    alert(id)
+    var parametro = "lo";
+    $.ajax({
+        url: "punte.php",
+        type: 'POST',
+        data: {
+            parametro:parametro,
+            idProducto:idProducto
+        },
+        cache: false,
+        success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                alert("Se agrego a carrito")
+                // location.href = "index.php";
+            }else{
+                alert("Favor revisar.");
+            }
+        }
+    });
 }
+
+function registrar(){
+    var parametro = "ru";
+    var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
+    var telefono = document.getElementById("telefono").value;
+    var usuario = document.getElementById("usuario").value;
+    var pass = document.getElementById("pass").value;
+
+    document.getElementById("nombre").style.borderColor = "inherit";
+    document.getElementById("apellido").style.borderColor = "inherit";
+    document.getElementById("telefono").style.borderColor = "inherit";
+    document.getElementById("usuario").style.borderColor = "inherit";
+    document.getElementById("pass").style.borderColor = "inherit";
+
+    if(nombre == ""){
+        document.getElementById("nombre").style.borderColor  = "red";
+        document.getElementById("nombre").focus();
+        alert("Debe ingresar un nombre");
+    }else if(apellido == ""){
+        document.getElementById("apellido").style.borderColor  = "red";
+        document.getElementById("apellido").focus();
+        alert("Debe ingresar un apellido");
+    }else if(telefono == ""){
+        document.getElementById("telefono").style.borderColor  = "red";
+        document.getElementById("telefono").focus();
+        alert("Debe ingresar un telefono");
+    }else if(usuario == ""){
+        document.getElementById("usuario").style.borderColor  = "red";
+        document.getElementById("usuario").focus();
+        alert("Debe ingresar un usuario");
+    }else if(pass == ""){
+        document.getElementById("pass").style.borderColor  = "red";
+        document.getElementById("pass").focus();
+        alert("Debe ingresar una contraseña");
+    }else{
+        $.ajax({
+            url: "punte.php",
+            type: 'POST',
+            data: {
+                parametro:parametro,
+                nombre:nombre,
+                apellido:apellido,
+                telefono:telefono,
+                usuario:usuario,
+                pass:pass,
+            },
+            cache: false,
+            success: function (respuesta) {
+                if(respuesta.trim() == 1){
+                    alert("Usuario ingresado exitosamente");
+                    location.href = "login.php";
+                }else{
+                    alert("No se pudo ingresar el usuario, favor revisar.");
+                }
+            }
+        });
+    }
+}
+
 /*
 //formato
 
