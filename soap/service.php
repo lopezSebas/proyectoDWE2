@@ -16,12 +16,11 @@ class SistemaVentas {
 
     public function logIn( $user, $pass) {
         if ( $this->client->logIn(array("usuario" => $user, "password" => $pass))) {
-            session_unset();
+            session_start();
             $_SESSION["usuario"] = $user;
             return true;
         } else {
-            session_destroy();
-            return false; 
+            return false;
         }  
     }
 
