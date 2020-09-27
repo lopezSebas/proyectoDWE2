@@ -44,6 +44,9 @@ if (is_array($_FILES) && count($_FILES) > 0) {
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == "oc"){
     echo $servicio->changeOrderStatus($_POST["id"],'Cancelado');
 }else if(isset($_POST["parametro"]) && $_POST["parametro"] == "in"){
-    echo base64_decode($_POST["pass"]). " " .base64_decode($_POST["user"]);
+    echo $servicio->logIn(base64_decode($_POST["user"]),base64_decode($_POST["pass"]));
+}else if(isset($_POST["parametro"]) && $_POST["parametro"] == "lo"){
+    session_unset();
+    echo 1;
 }
 ?>

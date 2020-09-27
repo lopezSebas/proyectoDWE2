@@ -1,4 +1,4 @@
-<?php include ("../header.php")?>
+<?php include("header.php") ?>
 <?php
 include("../soap/service.php");
 ?>
@@ -38,5 +38,5 @@ include("../soap/service.php");
         </div>
     </div>
 </article>
-<?php include ("../menu.php")?>
-<?php include ("../footer.php")?>
+<?php include("menu.php") ?>
+<?php include("footer.php") ?>

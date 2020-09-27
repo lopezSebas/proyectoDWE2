@@ -38,6 +38,8 @@ class server {
         $result = pg_query($this->connection, $query);
         $row = pg_fetch_assoc($result);
         $real_password = $row['password'];
+//        session_start();
+//        $_SESSION["idUser"] = $row['id'];
         #($real_password == $password) ? $_SESSION["usuario"] = $usuario : session_destroy();
         return $real_password == $password; 
     }

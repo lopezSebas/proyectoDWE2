@@ -1,6 +1,6 @@
-<div class="shop-item">
+<div class="cart-item">
     <div class="shop-item-image">
-        <img src="res/uno.jpg" alt="uno">
+        <img src="../res/uno.jpg" alt="uno">
     </div>
     <div class="shop-item-title">
         <label for="label-item-shop-title">UNO</label>
@@ -12,6 +12,6 @@
         <label for="label-item-shop-price">Q10.00</label>
     </div>
     <div class="shop-item-add">
-        <button class="btn"><i class="fas fa-cart-plus"></i></button>
+        <button class="btn"><i class="fas fa-trash"></i></button>
     </div>
 </div>

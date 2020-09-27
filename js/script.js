@@ -715,6 +715,30 @@ function cancelarOrden(id){
         }
     });
 }
+
+function cerrarSesion(){
+    var parametro = "lo";
+    $.ajax({
+        url: "punte.php",
+        type: 'POST',
+        data: {
+            parametro:parametro,
+        },
+        cache: false,
+        success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                location.href = "index.php";
+            }else{
+                alert("Favor revisar.");
+            }
+        }
+    });
+}
+
+function agregarCarrito(id, user){
+
+    alert(id)
+}
 /*
 //formato
 

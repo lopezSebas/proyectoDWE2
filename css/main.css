@@ -97,9 +97,9 @@ nav img:hover{
   grid-area: items-header;
   display: grid;
   grid-template-areas: 
-    "search . log";
+    "search pa1 log";
   grid-template-rows: 1fr;  
-  grid-template-columns: 50% 40% 10%;
+  grid-template-columns: 60% 20% 20%;
   grid-row-gap: 10px;
   grid-column-gap: 0px;
   
@@ -108,6 +108,10 @@ nav img:hover{
 .search{
   grid-area:search;
   display:inline;
+}
+.pa{
+  grid-area:pa1;
+  float:right;
 }
 .log{
   grid-area:log;

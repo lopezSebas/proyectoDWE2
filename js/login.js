@@ -15,7 +15,7 @@ function login(){
         alert("Debe ingresar una contraseña");
     }else{
         $.ajax({
-            url: "php/punte.php",
+            url: "punte.php",
             type: 'POST',
             data: {
                 parametro:parametro,
@@ -28,7 +28,7 @@ function login(){
                     alert("Ingresado exitosamente");
                     location.href = "home.php";
                 }else{
-                    alert("No se pudo ingresar, favor revisar.");
+                    alert("Credenciales Invalidas, favor verificar.");
                 }
             }
         });

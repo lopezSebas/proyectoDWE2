@@ -1,5 +1,5 @@
 <?php
-include ("../header.php");
+include("header.php");
 include('../soap/service.php');
 $resultado = $servicio->getInventario($_GET["id"]);
 ?>
@@ -59,5 +59,5 @@ $resultado = $servicio->getInventario($_GET["id"]);
             </div>
         </div>
     </article>
-<?php include ("../menu.php")?>
-<?php include ("../footer.php")?>
+<?php include("menu.php") ?>
+<?php include("footer.php") ?>

@@ -2,7 +2,7 @@
 include('../soap/service.php');
 $resultado = $servicio->getProduct($_GET["id"]);
 ?>
-<?php include ("../header.php")?>
+<?php include("header.php") ?>
 <article id="mainArticle">
     <div class="container">
         <div class="content-body">
@@ -35,5 +35,5 @@ $resultado = $servicio->getProduct($_GET["id"]);
         </div>
     </div>
 </article>
-<?php include ("../menu.php")?>
-<?php include ("../footer.php")?>
+<?php include("menu.php") ?>
+<?php include("footer.php") ?>

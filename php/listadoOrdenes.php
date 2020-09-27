@@ -1,5 +1,5 @@
 <?php
-include ("../header.php");
+include("header.php");
 include('../soap/service.php');
 ?>
     <article id="mainArticle">
@@ -39,5 +39,5 @@ include('../soap/service.php');
             </div>
         </div>
     </article>
-<?php include ("../menu.php")?>
-<?php include ("../footer.php")?>
+<?php include("menu.php") ?>
+<?php include("footer.php") ?>
