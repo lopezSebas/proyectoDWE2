@@ -51,7 +51,8 @@ nav img:hover{
   text-align: center;
   }
 #mainArticle { 
-  grid-area: article;      
+  grid-area: article;
+  height: 85vh;      
   }
 #mainNav { 
   grid-area: nav; 
