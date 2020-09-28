@@ -52,7 +52,7 @@ nav img:hover{
   }
 #mainArticle { 
   grid-area: article;
-  height: 85vh;      
+  height: 65vh;      
   }
 #mainNav { 
   grid-area: nav; 
@@ -572,6 +572,8 @@ tr:nth-child(even) {
   padding: 2px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   justify-content: center;
+  height: 90vh;
+  overflow-y: auto; 
 }
 
 .formulario{
