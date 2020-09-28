@@ -1,5 +1,5 @@
 <?php session_start();
-echo $_SESSION["usuario"];?>
+//echo $_SESSION["usuario"];?>
 <!DOCTYPE html>
 <head>
     <script src="https://kit.fontawesome.com/7bf3b56285.js" crossorigin="anonymous"></script>
