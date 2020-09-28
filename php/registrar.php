@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcial 2</title>
-    <link href='../css/main.css' type='text/css' rel='stylesheet'/>
-    <script src="../js/jquery-3.2.1.min.js"></script>
+    <link href='../css/main.css?v3' type='text/css' rel='stylesheet'/>
+    <script src="../js/jquery-3.2.1.min.js?v3"></script>
     <script type="text/javascript" src="../js/script.js?v3"></script>
 </head>
 <article id="mainArticle">

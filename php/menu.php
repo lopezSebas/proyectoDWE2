@@ -8,5 +8,6 @@ include("seguridad.php");
     <a href="/proyectoDWE2/php/listadoSucursales.php"><img src="res/salesroom.png" title="Sucursales" onerror='this.onerror = null; this.src="../res/salesroom.png"'></a>
     <a href="/proyectoDWE2/php/listadoUsuarios.php"><img src="res/user.png" title="Usuarios" onerror='this.onerror = null; this.src="../res/user.png"'></a>
     <a href="/proyectoDWE2/php/listadoOrdenes.php"><img src="res/order.png" title="Ordenes" onerror='this.onerror = null; this.src="../res/order.png"'></a>
+    <a href="/proyectoDWE2/php/listadoInventario.php"><img src="res/warehouse.png" title="Inventario" onerror='this.onerror = null; this.src="../res/warehouse.png"'></a>
     <a href="javascript:cerrarSesion()"><img src="res/cerrar-sesion.png" title="Inventario" onerror='this.onerror = null; this.src="../res/cerrar-sesion.png"'></a>
 </nav>

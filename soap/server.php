@@ -32,15 +32,15 @@ class server {
 
         $usuario = $params['usuario'];
         $password = $params['password'];
-        $query = "SELECT id, password FROM public.usuarios where usuario = '$usuario'";
+        $query = "SELECT id, password, tipo, nombre, apellido FROM public.usuarios where usuario = '$usuario'";
 
         $result = pg_query($this->connection, $query);
         $row = pg_fetch_assoc($result);
         $real_password = $row['password'];
 
         return ($real_password == $password) ? array(
-            "id" => $row['id'], "usuario" => $usuario
-        ) : array(); 
+            "id" => $row['id'], "usuario" => $usuario, "tipo" => $row['tipo'], "nombre" =>  $row['nombre'], "apellido" => $row['apellido']
+        ) : array();
     }
     
     /*
@@ -366,7 +366,7 @@ class server {
 
     public function listInventario() {
 
-        $query = 'Select i.id, i.id_producto, p.codigo, p.marca, p.tipo "tipo_producto", p.url, p.descripcion, i.id_sucursal, s.nombre "sucursal", i.id_proveedor, pv.nombre "proveedor", i.estado, i.tipo, i.fecha_modificacion from public.inventario i inner join public.productos p on p.id = i.id_producto inner join public.sucursales s on s.id = i.id_sucursal inner join public.proveedores pv on pv.id = i.id_proveedor order by i.id desc';
+        $query = 'Select i.id, i.id_producto, p.codigo, p.marca,  p.url, p.tipo "tipo_producto", p.url, p.descripcion, i.id_sucursal, s.nombre "sucursal", i.id_proveedor, pv.nombre "proveedor", i.estado, i.tipo, i.fecha_modificacion from public.inventario i inner join public.productos p on p.id = i.id_producto inner join public.sucursales s on s.id = i.id_sucursal inner join public.proveedores pv on pv.id = i.id_proveedor order by i.id desc';
 
         $result = pg_query($this->connection, $query);
         
@@ -377,6 +377,7 @@ class server {
                 "id_producto" => $row['id_producto'],
                 "codigo" => $row['codigo'],
                 "marca" => $row['marca'],
+                "url" => $row['url'],
                 "tipo_producto" => $row['tipo_producto'],
                 "descripcion" => $row['descripcion'],
                 "id_sucursal" => $row['id_sucursal'],
@@ -464,6 +465,7 @@ class server {
                 "id_producto" => $row['id_producto'],
                 "codigo" => $row['codigo'],
                 "marca" => $row['marca'],
+                "url" => $row['url'],
                 "tipo_producto" => $row['tipo_producto'],
                 "descripcion" => $row['descripcion'],
                 "id_sucursal" => $row['id_sucursal'],
@@ -582,8 +584,10 @@ class server {
         $estado = $params['estado'];
         $fecha_entrega = $params['fecha_entrega'];        
         
-        $query = "INSERT INTO public.ordenes(id_usuario, id_proveedor, fecha, estado, fecha_entrega) values ($id_usuario, $id_proveedor, '$fecha', '$estado', '$fecha_entrega')";
-        return pg_query($this->connection, $query) ? true : false;
+        $query = "INSERT INTO public.ordenes(id_usuario, id_proveedor, fecha, estado, fecha_entrega) values ($id_usuario, $id_proveedor, '$fecha', '$estado', '$fecha_entrega') RETURNING id";
+        $consulta = pg_query($this->connection, $query);
+        $resultados = pg_fetch_array($consulta);
+        return $resultados[0];
     }
 
     public function editOrden( $params ) {

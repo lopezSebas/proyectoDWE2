@@ -21,6 +21,9 @@ class SistemaVentas {
         if (!empty( $datos )) {            
             $_SESSION["usuario"] = $user;
             $_SESSION["id_usuario"] = $datos['id'];
+            $_SESSION["tipo"] = $datos['tipo'];
+            $_SESSION["nombre"] = $datos['nombre'];
+            $_SESSION["apellido"] = $datos['apellido'];
             $result = true;
         }
 
@@ -224,7 +227,7 @@ class SistemaVentas {
     }
 
     public function getInventario( $id ) {                
-        return $this->client->getInventarioEntregado(array(
+        return $this->client->getInventario(array(
             "id" => $id
         ));
     }

@@ -735,26 +735,33 @@ function cerrarSesion(){
     });
 }
 
-function agregarCarrito(idProducto, user){
-
-    var parametro = "lo";
-    $.ajax({
-        url: "punte.php",
-        type: 'POST',
-        data: {
-            parametro:parametro,
-            idProducto:idProducto
-        },
-        cache: false,
-        success: function (respuesta) {
-            if(respuesta.trim() == 1){
-                alert("Se agrego a carrito")
-                // location.href = "index.php";
-            }else{
-                alert("Favor revisar.");
+function agregarCarrito(idProducto, idUser, carro){
+    if(idUser === undefined){
+        alert("Para agregar el producto a su carrito debe iniciar sesión");
+        location.href = "login.php";
+    }else {
+        console.log(carro);
+        var parametro = "aca";
+        $.ajax({
+            url: "punte.php",
+            type: 'POST',
+            data: {
+                parametro: parametro,
+                idProducto: idProducto,
+                idUser: idUser,
+                carro:carro
+            },
+            cache: false,
+            success: function (respuesta) {
+                if (respuesta.trim() == 1) {
+                    alert("Se agrego a carrito")
+                    location.href = "index.php";
+                } else {
+                    alert("Favor revisar.");
+                }
             }
-        }
-    });
+        });
+    }
 }
 
 function registrar(){
@@ -815,7 +822,60 @@ function registrar(){
         });
     }
 }
+function eliminarItem(id, carro){
+    var parametro = "epi";
+    $.ajax({
+        url: "punte.php",
+        type: 'POST',
+        data: {
+            parametro:parametro,
+            id:id,
+            carro:carro
+        },
+        cache: false,
+        success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                alert("Producto eliminado correctamente del carrito");
+                location.href = "cart.php";
+            }else{
+                alert("No se pudo eliminar, favor revisar.");
+            }
+        }
+    });
+}
 
+function confirmarOrden(idUsuario){
+    var totalItems = $('input#totalItems').val();
+
+    var arrgloItem = new Array();
+    for(var i = 0;i < parseInt(totalItems); i++){
+        var id = $('input#id' + i).val();
+
+        var arregloEnviar = new Array();
+        arregloEnviar[0] = id;
+        arrgloItem[i] = arregloEnviar;
+    }
+    var parametro = "conf";
+    $.ajax({
+        url: "punte.php",
+        type: 'POST',
+        data: {
+            parametro:parametro,
+            idUsuario:idUsuario,
+            arrgloItem:arrgloItem,
+            totalItems:totalItems
+        },
+        cache: false,
+        success: function (respuesta) {
+            if(respuesta.trim() == 1){
+                alert("Orden Confirmada");
+                location.href = "index.php";
+            }else{
+                alert("No se pudo confirmar, favor revisar.");
+            }
+        }
+    });
+}
 /*
 //formato
 

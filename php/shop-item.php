@@ -1,8 +1,13 @@
 <?php
 include('../soap/service.php');
+if(isset($_SESSION["carrito"])){
+    $var = implode(",",$_SESSION["carrito"]);
+}else{
+    $var = "";
+}
 ?>
     <?php
-        foreach ($servicio->listProducts() as $producto){
+        foreach ($servicio->listInventario() as $producto){
             echo "<div class=\"shop-item\">";
             echo "<div class=\"shop-item-image\">
                     <img src=\"../imagenes/{$producto["url"]}\">
@@ -14,7 +19,7 @@ include('../soap/service.php');
                     <label for=\"label-item-shop-price\">{$producto["codigo"]}</label>
                 </div>\n";
             echo "<div class=\"shop-item-add\">
-                    <button class=\"btn\" onclick='agregarCarrito({$producto["id"]})'><i class=\"fas fa-cart-plus\"></i></button>
+                    <button class=\"btn\" onclick=\"agregarCarrito({$producto["id"]},{$_SESSION["id_usuario"]},'$var')\"><i class=\"fas fa-cart-plus\"></i></button>
                 </div>\n";
             echo "</div>";
         }

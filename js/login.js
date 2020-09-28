@@ -24,9 +24,12 @@ function login(){
             },
             cache: false,
             success: function (respuesta) {
-                if(respuesta.trim() == 1){
+                if(respuesta.trim() == 2){
                     alert("Ingresado exitosamente");
                     location.href = "home.php";
+                }else if(respuesta.trim() == 3){
+                    alert("Ingresado exitosamente");
+                    location.href = "index.php";
                 }else{
                     alert("Credenciales Invalidas, favor verificar.");
                 }

@@ -1,5 +1,5 @@
 <?php session_start();
-//echo $_SESSION["usuario"];?>
+?>
 <!DOCTYPE html>
 <head>
     <script src="https://kit.fontawesome.com/7bf3b56285.js" crossorigin="anonymous"></script>
@@ -17,21 +17,43 @@
                 <input id="search" class="search" placeholder="Search">
             </div>
             <div class="pa">
-                <a href="cart.php"><img src="../res/cart.png" width="15%" title="Carrito" onerror='this.onerror = null; this.src="../res/cart.png"'></a>
-
+                 <?php
+                    if($_SESSION["tipo"] == ""){
+                        echo "<a href=\"login.php\" onclick=\"alert('Para ingresar al carrito debe iniciar Sesión')\"><img src=\"../res/cart.png\" width=\"15%\" title=\"Carrito\" onerror='this.onerror = null; this.src=\"../res/cart.png\"'></a>";
+                    }else{
+                        echo "<a href=\"cart.php\"><img src=\"../res/cart.png\" width=\"15%\" title=\"Carrito\" onerror='this.onerror = null; this.src=\"../res/cart.png\"'></a>";
+                    }
+                ?>
             </div>
-            <div class="log">
-                <a href="login.php">
-                    <button type="submit" class="btn-verde">
-                        Iniciar Sesión
-                    </button>
-                </a>
-                <a href="registrar.php">
-                    <button type="submit" class="btn-amarillo">
-                        Registrar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </button>
-                </a>
-            </div>
+            <?php
+                if($_SESSION["tipo"] == ""){
+                    echo "
+                      <div class=\"log\">
+                        <a href=\"login.php\">
+                            <button type=\"submit\" class=\"btn-verde\">
+                                Iniciar Sesión
+                            </button>
+                        </a>
+                        <a href=\"registrar.php\">
+                            <button type=\"submit\" class=\"btn-amarillo\">
+                                Registrar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </button>
+                        </a>
+                    </div>";
+                }else {
+                    echo "
+                      <div class=\"log\">
+                        <a href=\"javascript:cerrarSesion()\">
+                            <button type=\"submit\" class=\"btn-verde\">
+                                Cerrar Sesión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </button>
+                        </a>
+                        <button type=\"submit\" class=\"btn-amarillo\">
+                            Bienvenido {$_SESSION["nombre"]} {$_SESSION["apellido"]}
+                        </button>
+                    </div>";
+                }
+            ?>
         </div>
         <div class="shop-items">
             <?php include("shop-item.php") ?>
